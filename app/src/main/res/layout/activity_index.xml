@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkBackground"
+    tools:context=".Actividades.IndexActivity">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="343dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/boozer_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="BoozeR"
+        android:textSize="80dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogo" />
+
+    <!-- Botón de login -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGoLogin"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btnGoLogin"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appName" />
+
+    <!-- Botón de registro -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGoRegister"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btnGoRegister"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGoLogin" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

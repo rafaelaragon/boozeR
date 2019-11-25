@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1030389510597",
+    "firebase_url": "https://boozer-f29ce.firebaseio.com",
+    "project_id": "boozer-f29ce",
+    "storage_bucket": "boozer-f29ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030389510597:android:2537443a4b3de1a3ec1bac",
+        "android_client_info": {
+          "package_name": "com.rar.boozer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030389510597-7g2uj46o194hh01d38atue7kk5hu4f15.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rar.boozer",
+            "certificate_hash": "a51d387d40215fc04961b0d67f599c3513356332"
+          }
+        },
+        {
+          "client_id": "1030389510597-14qi4nt4hcii01o4ccr3806sjod4sltr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqdIHQ01iLjy03q9oxXLc3_pbUK8LY5_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030389510597-14qi4nt4hcii01o4ccr3806sjod4sltr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

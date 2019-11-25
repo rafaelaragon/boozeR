@@ -1,0 +1,115 @@
+package com.rar.boozer.Actividades;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.rar.boozer.Adaptadores.DrinksAdapter;
+import com.rar.boozer.Fragmentos.CalculatorFragment;
+import com.rar.boozer.Fragmentos.CatalogueFragment;
+import com.rar.boozer.Modelos.Bebida;
+import com.rar.boozer.R;
+
+public class MainActivity extends AppCompatActivity {
+
+    private FirebaseAuth fbauth;
+    private TextView correo;
+
+    private BottomNavigationView bnv;
+    private Fragment catalogueFragment = new CatalogueFragment();
+    private Fragment calculatorFragment = new CalculatorFragment();
+
+    FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //correo = findViewById(R.id.userMail); TODO añadir a Perfil
+        bnv = findViewById(R.id.bottom_menu);
+
+        fbauth = FirebaseAuth.getInstance();
+        FirebaseUser fbuser = fbauth.getCurrentUser();
+
+        //Por defecto, carga el fragmento del catálogo
+        getSupportFragmentManager().beginTransaction().replace(R.id.layoutMain, catalogueFragment).commit();
+
+        //Activación de los fragmentos
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.bottomCatalogue:
+                        if (!isLoaded(catalogueFragment.getClass().getSimpleName(), R.id.bottomCatalogue)) {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.layoutMain, catalogueFragment).commit();
+                        }
+                        break;
+                    case R.id.bottomCalculator:
+                        if (!isLoaded(calculatorFragment.getClass().getSimpleName(), R.id.bottomCalculator)) {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.layoutMain, calculatorFragment).commit();
+                        }
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_principal, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mnuProfile:
+
+                Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intentProfile);
+
+                return true;
+
+            case R.id.mnuLogout:
+
+                fbauth.signOut();
+
+                setResult(0);
+                Intent intentLogout = new Intent(MainActivity.this, IndexActivity.class);
+                startActivity(intentLogout);
+                finish();
+
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public boolean isLoaded(String fClass, int id) {
+        Fragment f = getSupportFragmentManager().findFragmentById(id);
+        return (f != null) && (f.getClass().getSimpleName().equals(fClass));
+    }
+
+}

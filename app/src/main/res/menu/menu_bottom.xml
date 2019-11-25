@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Catálogo-->
+    <item
+        android:id="@+id/bottomCatalogue"
+        android:icon="@drawable/catalogo"
+        android:title=""
+        android:checked="true">
+    </item>
+    <!--Filtro-->
+    <item
+        android:id="@+id/bottomCalculator"
+        android:icon="@drawable/filter"
+        android:title="">
+    </item>
+</menu>

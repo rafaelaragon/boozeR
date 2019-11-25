@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btnGoRegister">Registrarse</string>
+    <string name="btnGoLogin">Iniciar Sesión</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_username">Nombre de Usuario</string>
+    <string name="hint_confirm_password">Confirmar contraseña</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="toast_login_error">Ha ocurrido un error</string>
+    <string name="toast_login_cancelled">Se ha cancelado el Inicio de Sesión</string>
+    <string name="toast_register_cancelled">Se ha cancelado el Registro</string>
+    <string-array name="spinner_preferences">
+        <item>Sin preferencias</item>
+        <item>Dulce - Suave</item>
+        <item>Dulce - Fuerte</item>
+        <item>Amargo - Suave</item>
+        <item>Amargo - Fuerte</item>
+    </string-array>
+    <string name="toast_error_empty">Porfavor, rellene el formulario...</string>
+    <string name="toast_error_password">Las contraseñas no coinciden</string>
+    <string name="toast_error_password_length">La contraseña debe contener al menos 6 caracteres</string>
+    <string name="toast_error_email">El correo no es válido</string>
+    <string name="menu_logout">Cerrar sesión</string>
+    <string name="menu_profile">Perfil</string>
+    <string name="btnDeleteAccount">Borrar cuenta</string>
+    <string name="btnConfirmDeleteAccount">Sí, borra mi cuenta</string>
+    <string name="AlertDeleteAccount">¿Seguro? Una vez hecho, no hay marcha atrás</string>
+    <string name="toast_account_deleted">Tu cuenta se ha borrado con éxito</string>
+</resources>
