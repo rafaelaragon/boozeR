@@ -16,6 +16,9 @@ public class Usuario implements Serializable {
         this.preferencias = preferencias;
     }
 
+    public Usuario() {
+    }
+
     public String getUsuario() {
         return usuario;
     }

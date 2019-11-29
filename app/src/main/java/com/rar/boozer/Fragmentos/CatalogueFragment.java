@@ -26,7 +26,11 @@ import com.rar.boozer.Modelos.Bebida;
 import com.rar.boozer.Modelos.Usuario;
 import com.rar.boozer.R;
 
+import java.util.zip.Inflater;
+
 public class CatalogueFragment extends Fragment {
+
+    private View recyclerView;
 
     public CatalogueFragment() {
 
@@ -35,15 +39,15 @@ public class CatalogueFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        recyclerView = inflater.inflate(R.layout.item_layout, container, false);
         //Mostramos todas las bebidas
-        getAllDrinks();
-        return inflater.inflate(R.layout.item_layout, container, false);
+        //getAllDrinks(); TODO
+        return recyclerView;
     }
 
-    public void getAllDrinks() {
+    /*public void getAllDrinks() {
 
-    }
+    }*/
 
 
 }

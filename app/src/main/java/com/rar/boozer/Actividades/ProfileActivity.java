@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,23 +14,35 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.rar.boozer.Modelos.Usuario;
 import com.rar.boozer.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private TextView nick, perfil, preferencias;
     private Button btnDelAcc;
 
+    private Usuario usuario;
+
     private FirebaseAuth fbauth;
-    private FirebaseDatabase fbdatabase;
+    private FirebaseDatabase fbdb;
+    private FirebaseStorage fbstor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        nick = findViewById(R.id.profileUser);
+        perfil = findViewById(R.id.profileMail);
+        preferencias = findViewById(R.id.profilePreferences);
+
         fbauth = FirebaseAuth.getInstance();
         final FirebaseUser fbuser = fbauth.getCurrentUser();
 
+        Bundle bundle = getIntent().getExtras();
+        //usuario = (Usuario) bundle.getSerializable("userData");TODO mostrar datos del usuario
 
         btnDelAcc = findViewById(R.id.btnDeleteAccount);
 
@@ -49,11 +62,8 @@ public class ProfileActivity extends AppCompatActivity {
                         Intent intent = new Intent(ProfileActivity.this, IndexActivity.class);
                         startActivity(intent);
                     }
-
                 });
                 builder.show();
-
-
             }
         });
     }

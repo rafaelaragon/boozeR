@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">BoozeR</string>
     <string name="btnGoRegister">Sign Up</string>
     <string name="btnGoLogin">Login</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login" translatable="false">LoginActivity</string>
     <string name="hint_email" translatable="false">Email</string>
     <string name="hint_password">password</string>
     <string name="hint_username">Username</string>
@@ -30,5 +30,6 @@
     <string name="toast_account_deleted">Your account has been succesfully deleted</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_height">Height (cm)</string>
+    <string name="hint_weight">Weight (kg)</string>
 </resources>

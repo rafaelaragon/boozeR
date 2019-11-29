@@ -26,4 +26,6 @@
     <string name="btnConfirmDeleteAccount">Sí, borra mi cuenta</string>
     <string name="AlertDeleteAccount">¿Seguro? Una vez hecho, no hay marcha atrás</string>
     <string name="toast_account_deleted">Tu cuenta se ha borrado con éxito</string>
+    <string name="hint_height">Altura (cm)</string>
+    <string name="hint_weight">Peso (kg)</string>
 </resources>

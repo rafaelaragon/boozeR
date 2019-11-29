@@ -7,16 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.rar.boozer.Modelos.Bebida;
-import com.rar.boozer.Modelos.Usuario;
 import com.rar.boozer.R;
 import com.squareup.picasso.Picasso;
 
@@ -65,7 +60,6 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolde
     public class listaHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
         private TextView nombre;
         private ImageView poster;
-        private Usuario usuario;
 
         public listaHolder(@NonNull View itemView) {
             super(itemView);
@@ -82,6 +76,7 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolde
                 @Override
                 public void onClick(View view) {
                     interfazBebidas.onBebidasClickListener(item);
+                    Toast.makeText(contexto, item.getNombre() + " tiene una graduación de " + item.getGraduacion(), Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -92,12 +87,12 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolde
                     return false;
                 }
             });
-            // Mostramos el título de la bebida     /*item.getNombre()*/
-            nombre.setText("Prueba");
+            // Mostramos el título de la bebida     item.getNombre() TODO
+            nombre.setText(item.getNombre());
 
-            // mostramos la imagen de la bebida     item.getImagen()
+            // mostramos la imagen de la bebida     item.getImagen() TODO
             Picasso.get()
-                    .load(R.drawable.boozer_logo)
+                    .load(item.getImagen())
                     .resize(300, 444)
                     .into(poster);
 
