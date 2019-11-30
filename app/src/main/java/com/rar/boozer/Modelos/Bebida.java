@@ -11,13 +11,16 @@ public class Bebida implements Serializable {
     private String detalles;
     private String imagen;
 
-    public Bebida(String nombre, String tipo, Float graduacion, float precioLitro, String detalles, String imagen) {
-        this.nombre = nombre;
-        this.tipo = tipo;
-        this.graduacion = graduacion;
-        this.precioLitro = precioLitro;
+    public Bebida(String nombre, String tipo, Float graduacion, Float precioLitro, String detalles, String imagen) {
         this.detalles = detalles;
+        this.graduacion = graduacion;
         this.imagen = imagen;
+        this.nombre = nombre;
+        this.precioLitro = precioLitro;
+        this.tipo = tipo;
+    }
+
+    public Bebida() {
     }
 
     public String getNombre() {

@@ -26,8 +26,6 @@ public class ProfileActivity extends AppCompatActivity {
     private Usuario usuario;
 
     private FirebaseAuth fbauth;
-    private FirebaseDatabase fbdb;
-    private FirebaseStorage fbstor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
         final FirebaseUser fbuser = fbauth.getCurrentUser();
 
         Bundle bundle = getIntent().getExtras();
-        usuario = (Usuario) bundle.getSerializable("userData");//TODO mostrar datos del usuario
+        usuario = (Usuario) bundle.getSerializable("userData");
 
         nick.setText(getString(R.string.user) + " " + usuario.getUsuario());
         email.setText(getString(R.string.email) + " " + usuario.getEmail());

@@ -12,7 +12,7 @@
     <FrameLayout
         android:id="@+id/contenedor"
         android:layout_width="match_parent"
-        android:layout_height="672dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toTopOf="@+id/bottom_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></FrameLayout>
@@ -22,6 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
+        android:forceDarkAllowed="false"
+        android:translationY="7dp"
         app:itemIconSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
