@@ -78,7 +78,6 @@ public class LoginActivity extends AppCompatActivity {
                                     fbdatabase = FirebaseDatabase.getInstance();
 
                                     DatabaseReference userRef = fbdatabase.getReference().child("usuarios/" + uid);
-                                    Toast.makeText(getApplicationContext(), "Hola, " + uid, Toast.LENGTH_LONG).show();
 
                                     userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override

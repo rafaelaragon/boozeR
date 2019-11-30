@@ -42,4 +42,13 @@ public class Usuario implements Serializable {
     public void setPreferencias(String preferencias) {
         this.preferencias = preferencias;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "usuario='" + usuario + '\'' +
+                ", email='" + email + '\'' +
+                ", preferencias='" + preferencias + '\'' +
+                '}';
+    }
 }

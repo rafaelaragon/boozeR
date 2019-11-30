@@ -87,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.mnuProfile:
 
+                Bundle bundle = getIntent().getExtras();
                 Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                intentProfile.putExtras(bundle);
                 startActivity(intentProfile);
 
                 return true;

@@ -20,7 +20,7 @@ import com.rar.boozer.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView nick, perfil, preferencias;
+    private TextView nick, email, preferencias;
     private Button btnDelAcc;
 
     private Usuario usuario;
@@ -35,14 +35,18 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         nick = findViewById(R.id.profileUser);
-        perfil = findViewById(R.id.profileMail);
+        email = findViewById(R.id.profileMail);
         preferencias = findViewById(R.id.profilePreferences);
 
         fbauth = FirebaseAuth.getInstance();
         final FirebaseUser fbuser = fbauth.getCurrentUser();
 
         Bundle bundle = getIntent().getExtras();
-        //usuario = (Usuario) bundle.getSerializable("userData");TODO mostrar datos del usuario
+        usuario = (Usuario) bundle.getSerializable("userData");//TODO mostrar datos del usuario
+
+        nick.setText(getString(R.string.user) + " " + usuario.getUsuario());
+        email.setText(getString(R.string.email) + " " + usuario.getEmail());
+        preferencias.setText(getString(R.string.preferences) + " " + usuario.getPreferencias());
 
         btnDelAcc = findViewById(R.id.btnDeleteAccount);
 

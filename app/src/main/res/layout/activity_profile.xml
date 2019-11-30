@@ -11,18 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/profileMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:textAlignment="center"
+        android:textSize="22sp"
         app:layout_constraintTop_toTopOf="@id/profileUser" />
     <TextView
         android:id="@+id/profilePreferences"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:textAlignment="center"
+        android:textSize="22sp"
         app:layout_constraintTop_toTopOf="@id/profileMail" />
 
     <com.google.android.material.button.MaterialButton

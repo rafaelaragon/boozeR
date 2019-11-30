@@ -28,4 +28,6 @@
     <string name="toast_account_deleted">Tu cuenta se ha borrado con éxito</string>
     <string name="hint_height">Altura (cm)</string>
     <string name="hint_weight">Peso (kg)</string>
+    <string name="user">"Usuario: "</string>
+    <string name="preferences">"Preferencias: "</string>
 </resources>
