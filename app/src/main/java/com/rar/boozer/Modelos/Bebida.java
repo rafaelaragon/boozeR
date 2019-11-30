@@ -6,12 +6,12 @@ public class Bebida implements Serializable {
 
     private String nombre;
     private String tipo;
-    private int graduacion;
-    private int precioLitro;
+    private Float graduacion;
+    private Float precioLitro;
     private String detalles;
     private String imagen;
 
-    public Bebida(String nombre, String tipo, int graduacion, int precioLitro, String detalles, String imagen) {
+    public Bebida(String nombre, String tipo, Float graduacion, float precioLitro, String detalles, String imagen) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.graduacion = graduacion;
@@ -36,19 +36,19 @@ public class Bebida implements Serializable {
         this.tipo = tipo;
     }
 
-    public int getGraduacion() {
+    public float getGraduacion() {
         return graduacion;
     }
 
-    public void setGraduacion(int graduacion) {
+    public void setGraduacion(float graduacion) {
         this.graduacion = graduacion;
     }
 
-    public int getPrecioLitro() {
+    public float getPrecioLitro() {
         return precioLitro;
     }
 
-    public void setPrecioLitro(int precioLitro) {
+    public void setPrecioLitro(float precioLitro) {
         this.precioLitro = precioLitro;
     }
 

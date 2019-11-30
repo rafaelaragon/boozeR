@@ -41,7 +41,7 @@ public class CatalogueFragment extends Fragment {
        //recyclerView.setLayoutManager();
         bebidas = new ArrayList<Bebida>() {
             {
-                add(new Bebida("pepe", "manolo", 3, 45, "blblbal", "https://i.blogs.es/aa1b9a/luna-100mpx/450_1000.jpg"));
+                add(new Bebida("Jägermeister", "manolo", (float) 3.5, (float) 45.0, "blblbal", "https://firebasestorage.googleapis.com/v0/b/boozer-f29ce.appspot.com/o/bebidas%2Fjagermeister.png?alt=media&token=87133b60-b3a3-428c-a24f-f6c282c7a203"));
             }
         };
 
