@@ -22,14 +22,12 @@ import java.util.List;
 public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolder> {
 
     private List<Bebida> lista;
-    private InterfazBebidas interfazBebidas;
     private Context contexto;
     private int index;
 
-    public DrinksAdapter(Context ctx, InterfazBebidas iBebida) {
+    public DrinksAdapter(Context ctx) {
         lista = new ArrayList<>();
         contexto = ctx;
-        interfazBebidas = iBebida;
     }
 
     public void SetLista(List<Bebida> datos) {
@@ -73,13 +71,6 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolde
 
         public void BindHolder(final Bebida item) {
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    interfazBebidas.onBebidasClickListener(item);
-                    Toast.makeText(contexto, item.getNombre() + " tiene una graduación de " + item.getGraduacion(), Toast.LENGTH_SHORT).show();
-                }
-            });
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -103,10 +94,6 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolde
         public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
 
         }
-    }
-
-    public interface InterfazBebidas {
-        void onBebidasClickListener(Bebida item);
     }
 
 }
