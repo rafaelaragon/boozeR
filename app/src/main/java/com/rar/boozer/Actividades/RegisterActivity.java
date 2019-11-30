@@ -18,8 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.rar.boozer.R;
 import com.rar.boozer.Modelos.Usuario;
+import com.rar.boozer.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

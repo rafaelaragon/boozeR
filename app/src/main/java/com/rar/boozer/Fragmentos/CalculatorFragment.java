@@ -1,18 +1,19 @@
 package com.rar.boozer.Fragmentos;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
+import com.google.firebase.database.FirebaseDatabase;
 import com.rar.boozer.R;
 
 public class CalculatorFragment extends Fragment {
+
+    FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
+
     public CalculatorFragment() {
 
     }
