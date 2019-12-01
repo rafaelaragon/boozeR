@@ -30,4 +30,9 @@
     <string name="hint_weight">Peso (kg)</string>
     <string name="user">"Usuario: "</string>
     <string name="preferences">"Preferencias: "</string>
+    <string name="hint_quantity">Cantidad (ml)</string>
+    <string name="btnCalculate">Calcula</string>
+    <string name="fragment_percentage">"Alcohol en sangre: "</string>
+    <string name="radio_man">Hombre</string>
+    <string name="radio_woman">Mujer</string>
 </resources>

@@ -33,4 +33,11 @@
     <string name="user">User:</string>
     <string name="email" translatable="false">Email:</string>
     <string name="preferences">Preferences:</string>
+    <string name="hint_vol" translatable="false">Vol. (%)</string>
+    <string name="hint_quantity">Quantity (ml)</string>
+    <string name="btnCalculate">Calculate</string>
+    <string name="fragment_percentage">"Blood alcohol level: "</string>
+    <string name="fragment_percentage_number" translatable="false">0%</string>
+    <string name="radio_man">Man</string>
+    <string name="radio_woman">Woman</string>
 </resources>

@@ -79,10 +79,8 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolde
                     return false;
                 }
             });
-            // Mostramos el título de la bebida     item.getNombre() TODO
             nombre.setText(item.getNombre());
 
-            // mostramos la imagen de la bebida     item.getImagen() TODO
             Picasso.get()
                     .load(item.getImagen())
                     .resize(400, 500)

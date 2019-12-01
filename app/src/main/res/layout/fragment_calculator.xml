@@ -10,28 +10,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- campo TALLA -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fragmentHeightLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <!-- campo Sexo -->
+        <RadioGroup
+            android:id="@+id/radioSex"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
-            android:hint="@string/hint_height"
-            android:textColorHint="@color/white"
-            app:hintTextColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/fragmentHeight"
-                android:layout_width="match_parent"
+            <RadioButton
+                android:id="@+id/radio_masculino"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:layout_marginEnd="50dp"
+                android:checked="true"
+                android:text="@string/radio_man" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <RadioButton
+                android:id="@+id/radio_femenino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:checked="false"
+                android:text="@string/radio_woman" />
+        </RadioGroup>
 
         <!-- campo PESO -->
         <com.google.android.material.textfield.TextInputLayout
@@ -39,21 +46,104 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:hint="@string/hint_weight"
             android:textColorHint="@color/white"
             app:hintTextColor="@color/white"
-            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/radioSex"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragmentHeightLayout">
+            app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fragmentWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="80"
                 android:inputType="numberDecimal"
                 android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- campo VOLUMEN -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragmentVolLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/hint_vol"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/fragmentQuantityLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentWeightLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragmentVol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4.6"
+                android:inputType="numberDecimal"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- campo CANTIDAD -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragmentQuantityLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/hint_quantity"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="26dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentWeightLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragmentQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:text="500"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCalculate"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:text="@string/btnCalculate"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentWeightLayout" />
+
+        <TextView
+            android:id="@+id/fragmentResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_percentage"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
+        <TextView
+            android:id="@+id/fragmentResultNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_percentage_number"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_marginTop="50dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
