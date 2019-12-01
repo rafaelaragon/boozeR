@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //correo = findViewById(R.id.userMail); TODO añadir a Perfil
         bnv = findViewById(R.id.bottom_menu);
 
         fbauth = FirebaseAuth.getInstance();
@@ -69,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_principal, menu);
-
         return true;
     }
 
@@ -82,18 +80,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
                 intentProfile.putExtras(bundle);
                 startActivity(intentProfile);
-
                 return true;
 
             case R.id.mnuLogout:
 
                 fbauth.signOut();
-
                 setResult(0);
                 Intent intentLogout = new Intent(MainActivity.this, IndexActivity.class);
                 startActivity(intentLogout);
                 finish();
-
                 return true;
         }
 

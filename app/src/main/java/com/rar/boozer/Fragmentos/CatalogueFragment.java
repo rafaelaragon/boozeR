@@ -29,10 +29,6 @@ public class CatalogueFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    public CatalogueFragment() {
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,10 +38,10 @@ public class CatalogueFragment extends Fragment {
 
        DrinksAdapter adaptador = new DrinksAdapter(getActivity());
 
-       //recyclerView.setLayoutManager();
         bebidas = new ArrayList<Bebida>();
-        bebidas.add(new Bebida("pipo", "piiiiiipo", (float) 4.0, (float) 2.5, "wiowwio", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/WEEE_Man%2C_Eden_Project_-_geograph.org.uk_-_785381.jpg/220px-WEEE_Man%2C_Eden_Project_-_geograph.org.uk_-_785381.jpg"));
-
+        Bebida obligatoria = new Bebida("Lista de bebidas", "piiiiiipo", (float) 4.0, (float) 2.5, "wiowwio", "https://dqzrr9k4bjpzk.cloudfront.net/images/18481071/1171871437.jpg");
+        bebidas.add(obligatoria);
+        Log.i("mfirebase", "Id de la imborrable: " + bebidas.indexOf(obligatoria));
         FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
         final DatabaseReference dbref = fbdb.getReference("bebidas/");
         dbref.addValueEventListener(new ValueEventListener() {
@@ -67,7 +63,6 @@ public class CatalogueFragment extends Fragment {
 
             }
         });
-        Log.i("mfirebase", "Objeto: " + bebidas);
 
         adaptador.SetLista(bebidas);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -76,4 +71,5 @@ public class CatalogueFragment extends Fragment {
 
         return vista;
     }
+
 }

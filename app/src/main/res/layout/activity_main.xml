@@ -25,6 +25,7 @@
         android:forceDarkAllowed="false"
         android:translationY="7dp"
         app:itemIconSize="30sp"
+        app:itemIconTint="@layout/bottom_navigation_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

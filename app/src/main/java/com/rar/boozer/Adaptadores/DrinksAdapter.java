@@ -85,7 +85,7 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolde
             // mostramos la imagen de la bebida     item.getImagen() TODO
             Picasso.get()
                     .load(item.getImagen())
-                    .resize(300, 444)
+                    .resize(400, 500)
                     .into(poster);
 
         }
