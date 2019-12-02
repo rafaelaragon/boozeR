@@ -48,4 +48,7 @@
     <string name="warning_stupor">If you can read this, stop drinking</string>
     <string name="warning_coma">Do NOT drink anymore. You might have an ethilic coma</string>
     <string name="warning_rip">If you had drink that much, you would be dead</string>
+    <string name="btn_edit_account">Edit account</string>
+    <string name="btnConfirm">Accept</string>
+    <string name="toast_account_updated">Your account has been successfully edited</string>
 </resources>

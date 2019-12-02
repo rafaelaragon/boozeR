@@ -43,4 +43,7 @@
     <string name="warning_stupor">Si puedes leer esto, deja de beber</string>
     <string name="warning_coma">NO bebas más. Podrías sufrir un coma etílico</string>
     <string name="warning_rip">Si hubieras bebido, tanto, habrías muerto.</string>
+    <string name="btn_edit_account">Editar cuenta</string>
+    <string name="btnConfirm">Aceptar</string>
+    <string name="toast_account_updated">Su cuenta ha sido modificada con éxito</string>
 </resources>

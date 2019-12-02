@@ -14,6 +14,7 @@
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/profileMail"
         android:layout_width="match_parent"
@@ -22,6 +23,7 @@
         android:textAlignment="center"
         android:textSize="22sp"
         app:layout_constraintTop_toTopOf="@id/profileUser" />
+
     <TextView
         android:id="@+id/profilePreferences"
         android:layout_width="match_parent"
@@ -31,16 +33,116 @@
         android:textSize="22sp"
         app:layout_constraintTop_toTopOf="@id/profileMail" />
 
+    <!-- campo USERNAME -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userEditLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="24sp"
+        android:hint="@string/hint_username"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editUser"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:enabled="false"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!-- campo EMAIL -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailEditLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="22sp"
+        android:hint="@string/hint_email"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userEditLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:enabled="false"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- SPINNER: Preferencias -->
+    <Spinner
+        android:id="@+id/editPreferences"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:visibility="gone"
+        android:entries="@array/spinner_preferences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailEditLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEditAccount"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="@string/btn_edit_account"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConfirmEditAccount"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="@string/btnConfirm"
+        android:textColor="#85970D"
+        android:enabled="false"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCancelEditAccount"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="@string/btnCancel"
+        android:textColor="@color/white"
+        android:enabled="false"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDeleteAccount"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
         android:text="@string/btnDeleteAccount"
-        android:textColor="@color/white"
-        android:layout_marginTop="40dp"
+        android:textColor="#BB2D2D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePreferences" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
