@@ -21,18 +21,10 @@ import org.w3c.dom.Text;
 
 public class CalculatorFragment extends Fragment {
 
-    ListView listView;
-    FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
-    DatabaseReference dbref;
-
-
-    public CalculatorFragment() {
-
-    }
-
-    private Button button;
-    private TextView height, weight, vol, quantity, result;
+    private Button button, reset;
+    private TextView weight, vol, quantity, result, warning;
     private RadioButton man, woman;
+    private double res;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +38,8 @@ public class CalculatorFragment extends Fragment {
         quantity = (TextView) view.findViewById(R.id.fragmentQuantity);
         result = (TextView) view.findViewById(R.id.fragmentResultNumber);
         button = (Button) view.findViewById(R.id.btnCalculate);
+        reset = (Button) view.findViewById(R.id.btnReset);
+        warning = (TextView) view.findViewById(R.id.fragmentWarning);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +48,7 @@ public class CalculatorFragment extends Fragment {
                 Float qu = Float.parseFloat(quantity.getText().toString());
                 double A = qu * vo /100 * 0.8;
 
-                double r = 0;
+                double r = 0.0;
                 if (man.isChecked()) {
                      r = 0.70;
                 } else if (woman.isChecked()) {
@@ -62,12 +56,43 @@ public class CalculatorFragment extends Fragment {
                 }
                 Float m = Float.parseFloat(weight.getText().toString());
 
-                double res  = Double.parseDouble(result.getText().toString().substring(0, result.getText().length() - 1));
+                res  = Double.parseDouble(result.getText().toString().substring(0, result.getText().length() - 1));
                 Log.i("alcohol", "Resultado: "+ res);
-                res += Math.ceil(A / (r * m) * 100) / 100;
-                res = Math.floor(res * 100) / 100;
+                res += A / (r * m);
+                res = Math.round(res * 100.0) / 100.0;
                 result.setText(res + "%");
-                //TODO agregar botón de reinicio
+
+                //Comprobación de advertencias
+                if(res >= 0.3) {
+                    warning.setText(R.string.warning_drive_new);
+                }
+                if(res >= 0.5) {
+                    warning.setText(R.string.warning_drive);
+                }
+                if(res >= 1.0) {
+                    warning.setText(R.string.warning_nausea);
+                }
+                if(res >= 2.0) {
+                    warning.setText(R.string.warning_blackout);
+                }
+                if(res >= 3.0) {
+                    warning.setText(R.string.warning_stupor);
+                }
+                if(res >= 4.0) {
+                    warning.setText(R.string.warning_coma);
+                }
+                if(res >= 5.0) {
+                    warning.setText(R.string.warning_rip);
+                }
+            }
+        });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                res = 0;
+                result.setText(res + "%");
+                warning.setText("");
             }
         });
 

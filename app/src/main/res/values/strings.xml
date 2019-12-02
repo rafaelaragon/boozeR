@@ -40,4 +40,12 @@
     <string name="fragment_percentage_number" translatable="false">0%</string>
     <string name="radio_man">Man</string>
     <string name="radio_woman">Woman</string>
+    <string name="btnReset">Reset</string>
+    <string name="warning_drive_new">If you are a driver in your first two years of license, do not drive</string>
+    <string name="warning_drive">Don\'t drive</string>
+    <string name="warning_nausea">You might feel like vomiting. Please don\'t do anything stupid</string>
+    <string name="warning_blackout">If you haven\'t puked yet, you will. You should go home, tomorrow\'s going to be tough</string>
+    <string name="warning_stupor">If you can read this, stop drinking</string>
+    <string name="warning_coma">Do NOT drink anymore. You might have an ethilic coma</string>
+    <string name="warning_rip">If you had drink that much, you would be dead</string>
 </resources>

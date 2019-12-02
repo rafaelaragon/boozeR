@@ -22,13 +22,10 @@ import com.rar.boozer.R;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth fbauth;
-    private TextView correo;
 
     private BottomNavigationView bnv;
     private Fragment catalogueFragment = new CatalogueFragment();
     private Fragment calculatorFragment = new CalculatorFragment();
-
-    FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         bnv = findViewById(R.id.bottom_menu);
 
         fbauth = FirebaseAuth.getInstance();
-        FirebaseUser fbuser = fbauth.getCurrentUser();
 
         //Por defecto, carga el fragmento del catálogo
         getSupportFragmentManager().beginTransaction().replace(R.id.layoutMain, catalogueFragment).commit();

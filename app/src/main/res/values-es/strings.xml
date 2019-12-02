@@ -35,4 +35,12 @@
     <string name="fragment_percentage">"Alcohol en sangre: "</string>
     <string name="radio_man">Hombre</string>
     <string name="radio_woman">Mujer</string>
+    <string name="btnReset">Reiniciar</string>
+    <string name="warning_drive_new">Si tienes el carné desde hace menos de dos años, no conduzcas</string>
+    <string name="warning_drive">No conduzcas</string>
+    <string name="warning_nausea">Puede que tengas ganas de vomitar. Porfavor, no hagas nada estúpido</string>
+    <string name="warning_blackout">Si no has vomitado, lo harás. Será mejor que vayas a casa. Preveo resaca</string>
+    <string name="warning_stupor">Si puedes leer esto, deja de beber</string>
+    <string name="warning_coma">NO bebas más. Podrías sufrir un coma etílico</string>
+    <string name="warning_rip">Si hubieras bebido, tanto, habrías muerto.</string>
 </resources>
