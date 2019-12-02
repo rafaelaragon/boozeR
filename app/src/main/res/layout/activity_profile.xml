@@ -10,7 +10,7 @@
         android:id="@+id/profileUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="120dp"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="120dp"
         android:textSize="24sp"
         android:hint="@string/hint_username"
         android:textColorHint="@color/white"
@@ -58,31 +58,6 @@
             android:visibility="gone" />
 
     </com.google.android.material.textfield.TextInputLayout>
-    <!-- campo EMAIL -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailEditLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:textSize="22sp"
-        android:hint="@string/hint_email"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEditLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editEmail"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/white"
-            android:enabled="false"
-            android:visibility="gone" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- SPINNER: Preferencias -->
     <Spinner
@@ -94,7 +69,7 @@
         android:entries="@array/spinner_preferences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/userEditLayout" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEditAccount"

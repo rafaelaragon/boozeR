@@ -15,8 +15,8 @@
             android:id="@+id/radioSex"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="20dp"
+            android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,18 +26,18 @@
                 android:id="@+id/radio_masculino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:layout_marginEnd="50dp"
                 android:checked="true"
-                android:text="@string/radio_man" />
+                android:text="@string/radio_man"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/radio_femenino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:checked="false"
-                android:text="@string/radio_woman" />
+                android:text="@string/radio_woman"
+                android:textColor="@color/white" />
         </RadioGroup>
 
         <!-- campo PESO -->
@@ -50,17 +50,18 @@
             android:hint="@string/hint_weight"
             android:textColorHint="@color/white"
             app:hintTextColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/radioSex"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioSex">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fragmentWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="80"
                 android:inputType="numberDecimal"
-                android:textColor="@color/white" />
+                android:text="80"
+                android:textColor="@color/white"
+                tools:ignore="HardcodedText" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,9 +83,10 @@
                 android:id="@+id/fragmentVol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="4.6"
                 android:inputType="numberDecimal"
-                android:textColor="@color/white" />
+                android:text="4.6"
+                android:textColor="@color/white"
+                tools:ignore="HardcodedText" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,11 +97,11 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="26dp"
             android:hint="@string/hint_quantity"
             android:textColorHint="@color/white"
             app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="26dp"
             app:layout_constraintTop_toBottomOf="@+id/fragmentWeightLayout">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -108,7 +110,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:text="500"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                tools:ignore="HardcodedText" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,20 +131,21 @@
             android:id="@+id/fragmentResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="@string/fragment_percentage"
             android:textAlignment="center"
             android:textSize="30sp"
-            android:layout_marginTop="10dp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
+
         <TextView
             android:id="@+id/fragmentResultNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:text="@string/fragment_percentage_number"
             android:textAlignment="center"
             android:textSize="30sp"
-            android:layout_marginTop="50dp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
 
@@ -162,12 +166,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="#DBA407"
             android:textAlignment="center"
+            android:textColor="#DBA407"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnReset"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnReset" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -26,7 +26,6 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Button btnReg, btnCancelReg;
     private EditText email, pass, confirmPass, user;
 
     private Spinner pref;
@@ -47,10 +46,10 @@ public class RegisterActivity extends AppCompatActivity {
         pass = findViewById(R.id.regPassword);
         confirmPass = findViewById(R.id.regConfirm);
         user = findViewById(R.id.regUser);
-        pref =findViewById(R.id.regPreferences);
+        pref = findViewById(R.id.regPreferences);
 
-        btnReg = findViewById(R.id.btnRegister);
-        btnCancelReg = findViewById(R.id.regCancel);
+        Button btnReg = findViewById(R.id.btnRegister);
+        Button btnCancelReg = findViewById(R.id.regCancel);
 
         //Volver al Menú
         btnCancelReg.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +96,9 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (!task.isSuccessful()) {
-                                    //Snackbar.make(view, getResources().getText(R.string.err_register), Snackbar.LENGTH_LONG).show(); TODO
+                                    //Toast.makeText(getApplicationContext(), R.string.toast_login_error, Toast.LENGTH_LONG).show();
                                 } else {
+
                                     // obtenemos UID del usuario registrado
                                     String uid = fbauth.getUid();
 
@@ -108,14 +108,13 @@ public class RegisterActivity extends AppCompatActivity {
                                     DatabaseReference dbref = fbdatabase.getReference("usuarios");
 
                                     //Guardamos la información en RealTime Database
+                                    assert uid != null;
                                     dbref.child(uid).setValue(usuario);
 
                                     fbauth.signOut();
 
                                     setResult(RESULT_OK);
                                     finish();
-
-                                    return;
                                 }
                             }
                         });
@@ -126,20 +125,15 @@ public class RegisterActivity extends AppCompatActivity {
     public boolean isEmailValid(String email) {
         String regExpn =
                 "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
-                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
-                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
-                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
-
-        CharSequence inputStr = email;
+                        + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                        + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                        + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
 
         Pattern pattern = Pattern.compile(regExpn, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(inputStr);
+        Matcher matcher = pattern.matcher(email);
 
-        if (matcher.matches())
-            return true;
-        else
-            return false;
+        return matcher.matches();
     }
 }

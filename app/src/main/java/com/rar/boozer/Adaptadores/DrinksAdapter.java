@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,7 +59,7 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolde
         private TextView nombre;
         private ImageView poster;
 
-        public listaHolder(@NonNull View itemView) {
+        listaHolder(@NonNull View itemView) {
             super(itemView);
 
             nombre = itemView.findViewById(R.id.itemName);
@@ -69,7 +68,7 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolde
             itemView.setOnCreateContextMenuListener(this);
         }
 
-        public void BindHolder(final Bebida item) {
+        void BindHolder(final Bebida item) {
 
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {

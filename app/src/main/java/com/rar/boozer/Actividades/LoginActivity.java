@@ -1,5 +1,6 @@
 package com.rar.boozer.Actividades;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,15 +23,17 @@ import com.google.firebase.database.ValueEventListener;
 import com.rar.boozer.Modelos.Usuario;
 import com.rar.boozer.R;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth fbauth;
     private FirebaseDatabase fbdatabase;
 
     private EditText email, pass;
-    private Button btnLog, btnCancelLog;
     private final int LOG_CODE = 100;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +43,10 @@ public class LoginActivity extends AppCompatActivity {
 
         email = findViewById(R.id.userName);
         pass = findViewById(R.id.password);
-        btnLog = findViewById(R.id.btnLogin);
-        btnCancelLog = findViewById(R.id.logCancel);
+        Button btnLog = findViewById(R.id.btnLogin);
+        Button btnCancelLog = findViewById(R.id.logCancel);
 
-        // TEMPORAL TODO
+        //TODO Temporal
         email.setText("admin@gmail.com");
         pass.setText("123456");
 
@@ -73,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (!task.isSuccessful())
                                     Toast.makeText(getApplicationContext(), R.string.toast_login_error, Toast.LENGTH_LONG).show();
                                 else {
-                                    String uid = fbauth.getCurrentUser().getUid();
+                                    String uid = Objects.requireNonNull(fbauth.getCurrentUser()).getUid();
 
                                     fbdatabase = FirebaseDatabase.getInstance();
 

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,8 +12,6 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 import com.rar.boozer.Fragmentos.CalculatorFragment;
 import com.rar.boozer.Fragmentos.CatalogueFragment;
 import com.rar.boozer.R;
@@ -23,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth fbauth;
 
-    private BottomNavigationView bnv;
     private Fragment catalogueFragment = new CatalogueFragment();
     private Fragment calculatorFragment = new CalculatorFragment();
 
@@ -32,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bnv = findViewById(R.id.bottom_menu);
+        BottomNavigationView bnv = findViewById(R.id.bottom_menu);
 
         fbauth = FirebaseAuth.getInstance();
 
@@ -74,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Bundle bundle = getIntent().getExtras();
                 Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                assert bundle != null;
                 intentProfile.putExtras(bundle);
                 startActivity(intentProfile);
                 return true;

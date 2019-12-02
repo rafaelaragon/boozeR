@@ -27,7 +27,6 @@ public class CatalogueFragment extends Fragment {
 
     private List<Bebida> bebidas;
 
-    private RecyclerView recyclerView;
     private DrinksAdapter adaptador ;
 
     @Override
@@ -35,13 +34,13 @@ public class CatalogueFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View vista = inflater.inflate(R.layout.fragment_catalogue, container, false);
-        recyclerView = vista.findViewById(R.id.drinksCatalogue);
+        RecyclerView recyclerView = vista.findViewById(R.id.drinksCatalogue);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         adaptador = new DrinksAdapter(getActivity());
         recyclerView.setAdapter(adaptador);
 
-        bebidas = new ArrayList<Bebida>();
+        bebidas = new ArrayList<>();
 
         FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
         final DatabaseReference dbref = fbdb.getReference("bebidas/");
@@ -56,9 +55,7 @@ public class CatalogueFragment extends Fragment {
                         Bebida b = dSnap.getValue(Bebida.class);
                         bebidas.add(b);
                     }
-
                     adaptador.SetLista(bebidas) ;
-
                 }
             }
 
