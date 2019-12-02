@@ -64,8 +64,10 @@ public class CalculatorFragment extends Fragment {
 
                 double res  = Double.parseDouble(result.getText().toString().substring(0, result.getText().length() - 1));
                 Log.i("alcohol", "Resultado: "+ res);
-                res += Math.ceil(A / (r * m) * 100) / 100; //TODO arreglar Math.ceil.
+                res += Math.ceil(A / (r * m) * 100) / 100;
+                res = Math.floor(res * 100) / 100;
                 result.setText(res + "%");
+                //TODO agregar botón de reinicio
             }
         });
 

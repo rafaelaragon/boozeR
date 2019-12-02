@@ -28,20 +28,21 @@ public class CatalogueFragment extends Fragment {
     private List<Bebida> bebidas;
 
     private RecyclerView recyclerView;
+    private DrinksAdapter adaptador ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-       View vista = inflater.inflate(R.layout.fragment_catalogue, container, false);
-       recyclerView = vista.findViewById(R.id.drinksCatalogue);
+        View vista = inflater.inflate(R.layout.fragment_catalogue, container, false);
+        recyclerView = vista.findViewById(R.id.drinksCatalogue);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-       DrinksAdapter adaptador = new DrinksAdapter(getActivity());
+        adaptador = new DrinksAdapter(getActivity());
+        recyclerView.setAdapter(adaptador);
 
         bebidas = new ArrayList<Bebida>();
-        Bebida obligatoria = new Bebida("Lista de bebidas", "piiiiiipo", (float) 4.0, (float) 2.5, "wiowwio", "https://dqzrr9k4bjpzk.cloudfront.net/images/18481071/1171871437.jpg");
-        bebidas.add(obligatoria);
-        Log.i("mfirebase", "Id de la imborrable: " + bebidas.indexOf(obligatoria));
+
         FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
         final DatabaseReference dbref = fbdb.getReference("bebidas/");
         dbref.addValueEventListener(new ValueEventListener() {
@@ -55,18 +56,18 @@ public class CatalogueFragment extends Fragment {
                         Bebida b = dSnap.getValue(Bebida.class);
                         bebidas.add(b);
                     }
+
+                    adaptador.SetLista(bebidas) ;
+
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Log.i("mifirebase", databaseError.getMessage()) ;
             }
         });
 
-        adaptador.SetLista(bebidas);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adaptador);
         registerForContextMenu(recyclerView);
 
         return vista;

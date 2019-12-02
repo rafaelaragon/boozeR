@@ -25,12 +25,13 @@
         <item name="android:backgroundTint">@color/darkNavBar</item>
     </style>
 
-    <style name="DialogTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="DialogTheme" parent="Theme.MaterialComponents.Dialog.Alert">
         <!--title and message color-->
         <item name="android:textColorPrimary">@color/white</item>
         <!--dialog background-->
         <item name="android:windowBackground">@color/darkBackground</item>
     </style>
+
     <style name="CustomNavBar">
         <item name="android:colorPrimary">@color/colorAccent</item>
     </style>

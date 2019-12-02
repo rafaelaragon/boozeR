@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     android:background="@color/darkBackground"
     tools:context=".Actividades.MainActivity">
-    <!-- Logo -->
-    <!--app:itemIconTint="@color/white"-->
     <FrameLayout
         android:id="@+id/contenedor"
         android:layout_width="match_parent"
