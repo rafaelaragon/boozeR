@@ -21,11 +21,11 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
   - Calculador de Alcohol en Sangre</br></br>
   <img src="media/calculator.jpg" height="600px">
 - Perfil</br></br>
-![Perfil](media/profile.jpg)
+<img src="media/profile.jpg" height="600px">
 </br></br>
-![Editar Perfil](media/profile_edit.jpg)
+<img src="media/profile_edit.jpg" height="600px">
 </br></br>
-![Borrar Perfil](media/profile_delete.jpg)
+<img src="media/profile_delete.jpg" height="600px">
 </br>
 
 ## _TODO_
