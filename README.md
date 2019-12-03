@@ -11,17 +11,16 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 ## _Secciones de BoozeR_
 - Índice</br></br>
 ![Índice](media/index.jpg)
-</br>
 - Registro</br>
 ![Registro](media/register.jpg)
-- Inicio de Sesión</br>
+- Inicio de Sesión</br></br>
 ![Inicio de Sesión](media/login.jpg)
 - Vista Principal, que a su vez contendrá varios fragmentos:
-  - Catálogo de Bebidas
+  - Catálogo de Bebidas</br></br>
   ![Catálogo](media/catalogue.jpg)
-  - Calculador de Alcohol en Sangre
+  - Calculador de Alcohol en Sangre</br></br>
   ![Calculadora](media/calculator.jpg)
-- Perfil
+- Perfil</br></br>
 ![Perfil](media/profile.jpg)
 ![Editar Perfil](media/profile_edit.jpg)
 ![Borrar Perfil](media/profile_delete.jpg)
