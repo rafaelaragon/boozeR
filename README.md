@@ -9,12 +9,19 @@ BoozeR es una aplicación móvil desarrollada en Android Studio que busca facili
 Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas. No obstante, también será posible gestionar bebidas sin alcohol, así como complementos para las mismas. </br>
 
 ## _Secciones de BoozeR_
+- Índice
+![](media/index.gif)
 - Registro
+![](media/register.gif)
 - Inicio de Sesión
+![](media/login.gif)
 - Vista Principal, que a su vez contendrá varios fragmentos:
   - Catálogo de Bebidas
+  ![](media/catalogue.gif)
   - Calculador de Alcohol en Sangre
+  ![](media/calculator.gif)
 - Perfil
+![](media/profile.gif)
 
 ## _TODO_
 En próximas actualizaciones, se añadira un nuevo fragmento llamado _coctelería_, en el que podrás crear tus propios cócteles a partir de bebidas ya existentes.
