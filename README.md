@@ -17,4 +17,8 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 - Perfil
 
 ## _TODO_
+En próximas actualizaciones, se añadira un nuevo fragmento llamado _coctelería_, en el que podrás crear tus propios cócteles a partir de bebidas ya existentes.
+
+## _Contacto_
+En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar la aplicación, no dudes en contactarme a trav-es de mi correo, rafa.ar2000@gmail.com.
 
