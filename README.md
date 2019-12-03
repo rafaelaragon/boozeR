@@ -12,9 +12,9 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 - Índice</br></br>
 <img src="media/index.jpg" height="600px">
 - Registro</br></br>
-![Registro](media/register.jpg)
+<img src="media/register.jpg" height="600px">
 - Inicio de Sesión</br></br>
-![Inicio de Sesión](media/login.jpg)
+<img src="media/login.jpg" height="600px">
 - Vista Principal, que a su vez contendrá varios fragmentos:
   - Catálogo de Bebidas</br></br>
   ![Catálogo](media/catalogue.jpg)
