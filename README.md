@@ -17,9 +17,9 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 <img src="media/login.jpg" height="600px">
 - Vista Principal, que a su vez contendrá varios fragmentos:
   - Catálogo de Bebidas</br></br>
-  ![Catálogo](media/catalogue.jpg)
+  <img src="media/catalogue.jpg" height="600px">
   - Calculador de Alcohol en Sangre</br></br>
-  ![Calculadora](media/calculator.jpg)
+  <img src="media/calculator.jpg" height="600px">
 - Perfil</br></br>
 ![Perfil](media/profile.jpg)
 </br></br>
