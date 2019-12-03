@@ -10,8 +10,7 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 
 ## _Secciones de BoozeR_
 - Índice</br></br>
-![Índice](media/index.jpg)
-<img src="media/index.jpg" height="30vh">
+<img src="media/index.jpg" height="30vw">
 - Registro</br></br>
 ![Registro](media/register.jpg)
 - Inicio de Sesión</br></br>
