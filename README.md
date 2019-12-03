@@ -12,6 +12,7 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 - Índice</br></br>
 <img src="media/index.jpg" height="600px">
 </br>
+
 - Registro</br></br>
 <img src="media/register.jpg" height="600px">
 </br>
@@ -32,8 +33,12 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 - Perfil</br></br>
 <img src="media/profile.jpg" height="600px">
 </br></br>
+
+  - Editar Cuenta
 <img src="media/profile_edit.jpg" height="600px">
 </br></br>
+
+  - Borrar Cuenta
 <img src="media/profile_delete.jpg" height="600px">
 </br>
 
