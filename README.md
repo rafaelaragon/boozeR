@@ -1,5 +1,5 @@
 # _BoozeR_
-## (Presentación) [https://docs.google.com/presentation/d/1V-Md0SyKP87gJIY4NDrheRQVYlVeGGNqkmiQywAaGYU/edit?usp=sharing]
+## [Presentación](https://docs.google.com/presentation/d/1V-Md0SyKP87gJIY4NDrheRQVYlVeGGNqkmiQywAaGYU/edit?usp=sharing)
 ## ¿Alguna vez has tenido problemas a la hora de elegir qué beber?
 ### Quizás no quieras gastarte mucho dinero. A lo mejor quieres probar un ron nuevo. O quizás simplemente no quieras algo muy cargado.
 Para esos casos, y para muchos más, nació ***BoozeR***.
