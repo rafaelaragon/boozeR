@@ -49,3 +49,8 @@ En próximas actualizaciones, se añadira un nuevo fragmento llamado _coctelerí
 ## _Contacto_
 En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar la aplicación, no dudes en contactarme a través de mi correo, rafa.ar2000@gmail.com.
 
+
+## _Histórico_
+### Semana 1 (23-27 Marzo):
+- Conseguí migrar de firebase database(realtimedatabase) a DynamoDB (AWS). 
+
