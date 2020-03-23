@@ -52,5 +52,5 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 
 ## _Histórico_
 ### Semana 1 (23-27 Marzo):
-- Conseguí migrar de firebase database(realtimedatabase) a DynamoDB (AWS). 
+- Conseguí migrar de firebase database(realtimedatabase) a DynamoDB (AWS).  Usé [esta](https://www.youtube.com/watch?v=oGWJ8xD2W6k) guía.
 
