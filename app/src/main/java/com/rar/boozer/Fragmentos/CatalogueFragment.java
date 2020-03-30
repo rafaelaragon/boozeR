@@ -11,63 +11,100 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.rar.boozer.Adaptadores.DrinksAdapter;
-import com.rar.boozer.Modelos.Bebida;
+import com.rar.boozer.Models.Drink;
 import com.rar.boozer.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 
 public class CatalogueFragment extends Fragment {
 
-    private List<Bebida> bebidas;
+    private List<Drink> drinks;
 
-    private DrinksAdapter adaptador ;
+    private DrinksAdapter adapter ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View vista = inflater.inflate(R.layout.fragment_catalogue, container, false);
-        RecyclerView recyclerView = vista.findViewById(R.id.drinksCatalogue);
+        View view = inflater.inflate(R.layout.fragment_catalogue, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.drinksCatalogue);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        adaptador = new DrinksAdapter(getActivity());
-        recyclerView.setAdapter(adaptador);
+        adapter = new DrinksAdapter(getActivity());
+        recyclerView.setAdapter(adapter);
 
-        bebidas = new ArrayList<>();
+        drinks = new ArrayList<>();
 
-        FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
-        final DatabaseReference dbref = fbdb.getReference("bebidas/");
-        dbref.addValueEventListener(new ValueEventListener() {
+
+        //Get drinks from DyanmoDB
+        OkHttpClient client = new OkHttpClient();
+        String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerDrinks";
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int i = 0;
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot dSnap : dataSnapshot.getChildren()) {
-                        i++;
-                        Log.i("mfirebase", "Número de ciclos: " + i);
-                        Bebida b = dSnap.getValue(Bebida.class);
-                        bebidas.add(b);
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                e.printStackTrace();
+            }
+
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    final String result = response.body().string();
+                    try {
+                        JSONArray jsonArray = new JSONArray(result);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                            //Get the name of the drink
+                            JSONObject name = jsonObject.getJSONObject("name");
+                            String nameString = name.getString("S");
+                            Log.i("boozerApi", "name: " + nameString);
+
+                            //Get the image of the drink
+                            JSONObject image = jsonObject.getJSONObject("image");
+                            String imageString = image.getString("S");
+                            Log.i("boozerApi", "image: " + imageString);
+
+                            //Add the drink to the fragment
+                            Drink d = new Drink(nameString, imageString);
+                            drinks.add(d);
+                        }
+                        Log.i("boozerApi", "lista: " + drinks.toString());
+
+                        //Call DrinksAdapter
+                        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                adapter.SetList(drinks);
+                            }
+                        });
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    adaptador.SetLista(bebidas) ;
                 }
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.i("mifirebase", databaseError.getMessage()) ;
-            }
         });
-
         registerForContextMenu(recyclerView);
 
-        return vista;
+        return view;
     }
 
 }

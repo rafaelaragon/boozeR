@@ -1,6 +1,9 @@
 package com.rar.boozer.Adaptadores;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,77 +14,79 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rar.boozer.Modelos.Bebida;
+import com.rar.boozer.Actividades.DrinkActivity;
+import com.rar.boozer.Models.Drink;
 import com.rar.boozer.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listaHolder> {
+public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listHolder> {
 
-    private List<Bebida> lista;
-    private Context contexto;
-    private int index;
+    private List<Drink> list;
+    private Context context;
 
     public DrinksAdapter(Context ctx) {
-        lista = new ArrayList<>();
-        contexto = ctx;
+        list = new ArrayList<>();
+        context = ctx;
     }
 
-    public void SetLista(List<Bebida> datos) {
-        lista = datos;
+    public void SetList(List<Drink> data) {
+        list = data;
         notifyDataSetChanged();
     }
 
-    public int getIndex() {
-        return index;
-    }
-
+    @NonNull
     @Override
-    public listaHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(contexto)
+    public listHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context)
                 .inflate(R.layout.item_layout, parent, false);
-        return new listaHolder(vista);
+        return new listHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull listaHolder holder, int position) {
-        holder.BindHolder(lista.get(position));
+    public void onBindViewHolder(@NonNull listHolder holder, int position) {
+        holder.BindHolder(list.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return lista.size();
+        return list.size();
     }
 
-    public class listaHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
-        private TextView nombre;
+    public class listHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
+        private TextView name;
         private ImageView poster;
 
-        listaHolder(@NonNull View itemView) {
+        listHolder(@NonNull View itemView) {
             super(itemView);
 
-            nombre = itemView.findViewById(R.id.itemName);
+            name = itemView.findViewById(R.id.itemName);
             poster = itemView.findViewById(R.id.itemImage);
 
             itemView.setOnCreateContextMenuListener(this);
         }
 
-        void BindHolder(final Bebida item) {
+        void BindHolder(final Drink item) {
 
 
-            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public boolean onLongClick(View view) {
-                    index = listaHolder.this.getAdapterPosition();
-                    return false;
+                public void onClick(View view) {
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("drinkName", item.getName());
+
+                    Intent intent = new Intent(context, DrinkActivity.class);
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
                 }
             });
-            nombre.setText(item.getNombre());
+
+            name.setText(item.getName());
 
             Picasso.get()
-                    .load(item.getImagen())
+                    .load(item.getImage())
                     .resize(400, 500)
                     .into(poster);
 

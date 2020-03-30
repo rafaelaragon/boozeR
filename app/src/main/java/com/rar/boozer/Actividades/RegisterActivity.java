@@ -18,7 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.rar.boozer.Modelos.Usuario;
+import com.rar.boozer.Models.User;
 import com.rar.boozer.R;
 
 import java.util.regex.Matcher;
@@ -96,23 +96,17 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (!task.isSuccessful()) {
-                                    //Toast.makeText(getApplicationContext(), R.string.toast_login_error, Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), R.string.toast_login_error, Toast.LENGTH_LONG).show();
                                 } else {
-
-                                    // obtenemos UID del usuario registrado
+                                    // obtenemos UID del user registrado
                                     String uid = fbauth.getUid();
-
-                                    Usuario usuario = new Usuario(usr, ema, pre);
-
+                                    User user = new User(usr, ema, pre);
                                     // obtener una referencia al documento USUARIOS en FB
                                     DatabaseReference dbref = fbdatabase.getReference("usuarios");
-
                                     //Guardamos la información en RealTime Database
                                     assert uid != null;
-                                    dbref.child(uid).setValue(usuario);
-
+                                    dbref.child(uid).setValue(user);
                                     fbauth.signOut();
-
                                     setResult(RESULT_OK);
                                     finish();
                                 }
@@ -130,7 +124,6 @@ public class RegisterActivity extends AppCompatActivity {
                         + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
                         + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
                         + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
-
         Pattern pattern = Pattern.compile(regExpn, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
 
