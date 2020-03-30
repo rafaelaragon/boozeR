@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.rar.boozer.Modelos.Usuario;
+import com.rar.boozer.Models.User;
 import com.rar.boozer.R;
 
 import java.util.Objects;
@@ -86,17 +86,16 @@ public class LoginActivity extends AppCompatActivity {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                             if (dataSnapshot.hasChildren()) {
-                                                // obtenemos datos del usuario logueado
-                                                Usuario usuario = dataSnapshot.getValue(Usuario.class);
+                                                // obtenemos datos del user logueado
+                                                User user = dataSnapshot.getValue(User.class);
 
                                                 // creamos un diccionario
                                                 Bundle bundle = new Bundle();
-                                                bundle.putSerializable("userData", usuario);
+                                                bundle.putSerializable("userData", user);
 
                                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                                 // utilizando putExtra puedo almacenar información en la intención
                                                 intent.putExtras(bundle);
-                                                //intent.putExtra("usuario", usuario.getUsuario());
                                                 startActivityForResult(intent, LOG_CODE);
                                             }
                                         }
