@@ -46,7 +46,8 @@
         app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:boxStrokeColor="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editUser"
@@ -69,7 +70,8 @@
         android:entries="@array/spinner_preferences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEditLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/userEditLayout"
+        app:boxStrokeColor="@color/colorAccent"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEditAccount"

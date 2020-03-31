@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.rar.boozer.Modelos.Usuario;
+import com.rar.boozer.Models.User;
 import com.rar.boozer.R;
 
 import java.util.Objects;
@@ -37,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText editNick;
     private Spinner editPreferencias;
 
-    private Usuario usuario;
+    private User user;
 
     private FirebaseUser fbuser;
 
@@ -67,11 +67,11 @@ public class ProfileActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
-        usuario = (Usuario) bundle.getSerializable("userData");
+        user = (User) bundle.getSerializable("userData");
 
-        nick.setText(getString(R.string.user) + " " + usuario.getUsuario());
-        email.setText(getString(R.string.email) + " " + usuario.getEmail());
-        preferencias.setText(getString(R.string.preferences) + " " + usuario.getPreferencias());
+        nick.setText(getString(R.string.user) + " " + user.getUser());
+        email.setText(getString(R.string.email) + " " + user.getEmail());
+        preferencias.setText(getString(R.string.preferences) + " " + user.getPreferences());
 
 
         btnEditAcc = findViewById(R.id.btnEditAccount);
@@ -85,7 +85,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 editNick.setVisibility(View.VISIBLE);
                 editNick.setEnabled(true);
-                editNick.setText(usuario.getUsuario());
+                editNick.setText(user.getUser());
 
                 editPreferencias.setVisibility(View.VISIBLE);
 
@@ -103,10 +103,10 @@ public class ProfileActivity extends AppCompatActivity {
         btnConEditAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                usuario.setUsuario(editNick.getText().toString());
-                usuario.setPreferencias(editPreferencias.getSelectedItem().toString());
+                user.setUser(editNick.getText().toString());
+                user.setPreferences(editPreferencias.getSelectedItem().toString());
 
-                fbdb.getReference().child("usuarios").child(uid).setValue(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
+                fbdb.getReference().child("usuarios").child(uid).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(getApplicationContext(), R.string.toast_account_updated, Toast.LENGTH_SHORT).show();

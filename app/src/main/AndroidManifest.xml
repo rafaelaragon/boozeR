@@ -33,6 +33,8 @@
         <activity
             android:name=".Actividades.MainActivity"
             android:theme="@style/AppTheme" />
+        <activity android:name=".Actividades.DrinkActivity"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

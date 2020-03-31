@@ -52,7 +52,8 @@
             app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radioSex">
+            app:layout_constraintTop_toBottomOf="@id/radioSex"
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fragmentWeight"
@@ -77,7 +78,8 @@
             app:hintTextColor="@color/white"
             app:layout_constraintEnd_toStartOf="@+id/fragmentQuantityLayout"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragmentWeightLayout">
+            app:layout_constraintTop_toBottomOf="@+id/fragmentWeightLayout"
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fragmentVol"
@@ -102,7 +104,8 @@
             android:textColorHint="@color/white"
             app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragmentWeightLayout">
+            app:layout_constraintTop_toBottomOf="@+id/fragmentWeightLayout"
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fragmentQuantity"
