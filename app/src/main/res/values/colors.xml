@@ -4,7 +4,6 @@
     <color name="colorPrimaryDark">#4E0000</color>
     <color name="colorAccent">#A83F3F</color>
     <color name="darkBackground">#3F3F3F</color>
-    <color name="darkNavBar">#242424</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#242424</color>

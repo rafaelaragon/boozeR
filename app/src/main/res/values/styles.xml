@@ -19,7 +19,6 @@
         <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:navigationBarColor">@color/darkNavBar</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:backgroundTint">@color/colorPrimary</item>
     </style>
