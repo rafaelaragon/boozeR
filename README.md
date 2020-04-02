@@ -54,6 +54,6 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 ### Semana 1 (23-27 Marzo):
 - Conseguí migrar de firebase database(realtimedatabase) a DynamoDB (AWS).  Usé [esta](https://www.youtube.com/watch?v=oGWJ8xD2W6k) guía.
 - Intenté mejorar los estilos de la aplicación, a pesar de no haber terminado, conseguí arreglar bastantes cosas.
-- Traducí una buena parte del código a inglés, ya que algunas partes estaban en español.
+- Traduje una buena parte del código a inglés, ya que algunas partes estaban en español.
 - Creé una nueva actividad para ver con más detalle cada una de las bebidas.
 
