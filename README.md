@@ -36,11 +36,11 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 </br></br>
 
   - Editar Cuenta
-<img src="media/profile_edit.jpg" height="600px">
+<img src="Boozer (Android Studio)/media/profile_edit.jpg" height="600px">
 </br></br>
 
   - Borrar Cuenta
-<img src="media/profile_delete.jpg" height="600px">
+<img src="Boozer (Android Studio)/media/profile_delete.jpg" height="600px">
 </br>
 
 ## _TODO_
