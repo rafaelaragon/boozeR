@@ -12,8 +12,8 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 ## _Instalación_
 - Boozer (Android Studio): Simplemente abrir el proyecto con android studio y pulsar en 'Run boozeR(Mayús+F10)'
 - Boozer-Admin (React): </br>
-  1. En un terminal en la raíz del proyecto: `npm install`</br>
-  2. `npm start`</br>
+  - En un terminal en la raíz del proyecto: `npm install`</br>
+  - `npm start`</br>
 ## _Secciones de BoozeR_
 - Índice</br></br>
 <img src="Boozer (Android Studio)/media/index.jpg" height="600px">
