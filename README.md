@@ -60,4 +60,11 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 - Conseguí recoger los datos de cada bebida individualmente mediante una nueva petición a la API.
 - Mejoré el layout de cada bebida individual.
 - Empecé la aplicación web con React.
+### Semana 3 (06-10 Abril):
+- Arreglé un problema grave al mergear en github.
+- Terminé la maquetación de la página web.
+### Semana 4 (13-17 Abril):
+- Terminé las funciones básicas de la página web (inicio de sesión, CRUD de bebidas), en un futuro controlaré el rol del usuario, para que sólo pueda editar un administrador.
+- Añadí un gif durante la carga de los componentes, tanto en web como en móvil.
+- Cambié ligeramente los estilos de la aplicación.
 
