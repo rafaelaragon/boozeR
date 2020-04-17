@@ -56,4 +56,8 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 - Intenté mejorar los estilos de la aplicación, a pesar de no haber terminado, conseguí arreglar bastantes cosas.
 - Traduje una buena parte del código a inglés, ya que algunas partes estaban en español.
 - Creé una nueva actividad para ver con más detalle cada una de las bebidas.
+### Semana 2 (30 Marzo-03 Abril):
+- Conseguí recoger los datos de cada bebida individualmente mediante una nueva petición a la API.
+- Mejoré el layout de cada bebida individual.
+- Empecé la aplicación web con React.
 
