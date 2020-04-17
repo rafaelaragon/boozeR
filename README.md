@@ -11,7 +11,7 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 
 ## _Secciones de BoozeR_
 - Índice</br></br>
-<img src="media/index.jpg" height="600px">
+<img src="Boozer (Android Studio)/media/index.jpg" height="600px">
 </br>
 
 - Registro</br></br>
