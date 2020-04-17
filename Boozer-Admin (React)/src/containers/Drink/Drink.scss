@@ -1,0 +1,87 @@
+.Drink {
+  color: white;
+  text-align: center;
+  max-width: 100%;
+  overflow-x: hidden;
+  label {
+    width: 12vw;
+  }
+  label.inline {
+    text-align: left;
+    margin-left: 2vw;
+  }
+
+  img {
+    width: 20vw;
+    height: 30vw;
+  }
+  span {
+    margin: 0 6vw;
+    padding: 5vw 0;
+  }
+  input,
+  select,
+  textarea {
+    width: 60vw;
+    margin: auto;
+    color: white;
+    background-color: rgb(24, 24, 24);
+    border-color: rgba(107, 0, 0, 0.75);
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    background-color: rgb(32, 32, 32);
+    color: white;
+  }
+  input {
+    width: 30vw;
+  }
+  input.number {
+    width: 10vw;
+  }
+  div.col {
+    max-width: 0vw !important;
+    margin-left: 29.1vw;
+  }
+  div.col #1st {
+    margin-left: 80vw;
+  }
+  select {
+    width: 12vw;
+  }
+  textarea {
+    width: 45vw;
+    min-height: 10vh;
+    max-height: 30vh;
+  }
+  label {
+    font-weight: bold;
+  }
+  svg {
+    font-size: 2vw;
+    margin: 1vw 0;
+  }
+  .btn-outline-danger {
+    color: rgba(114, 7, 7, 0.75);
+    border: none;
+    border-bottom: 1px solid rgb(70, 0, 0);
+  }
+  .btn-outline-danger:hover {
+    color: #fff;
+    background-color: rgba(114, 7, 7, 0.75);
+  }
+  .btn-outline-danger:focus {
+    background-color: rgba(140, 7, 7, 0.75) !important;
+  }
+  .btn-outline-success {
+    color: rgb(35, 143, 35);
+    border-color: rgb(27, 109, 27);
+    border: none;
+    border-top: 1px solid rgb(27, 109, 27);
+  }
+  .btn-outline-success:hover {
+    color: #fff;
+    background-color: rgb(35, 143, 35);
+  }
+}

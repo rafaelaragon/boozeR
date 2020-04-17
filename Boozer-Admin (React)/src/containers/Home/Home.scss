@@ -1,0 +1,77 @@
+.Home {
+  img {
+    width: 15vw;
+    height: 20vw;
+  }
+  ul {
+    text-align: center;
+    list-style-type: none;
+  }
+  ul li {
+    color: #ffffff;
+    padding: .5vw 0vw;
+    text-align: center;
+    width: 20vw;
+    margin: 2vw 1vw;
+    padding: 0;
+    display: inline-block;
+    background: radial-gradient(circle, rgba(255,255,255,.1) 0%, rgb(25, 25, 25) 33%, rgba(20,20,20, 1) 100%);
+    border-radius: 3vh 8vh 5vh 5vh;
+    overflow: hidden;
+  }
+  ul li h4 {
+    max-height: 3vw;
+    font-size: 2vw;
+  }
+  #edit, #delete {
+    background-color: rgb(15, 15, 15);
+    width: 50%;
+    display: inline-block;
+    height: 4vw;
+    border-top: 2px solid black;
+    transition: all linear .15s;
+  }
+  //Transitions for icons
+  #edit svg, #delete svg {
+    transition: transform linear .15s;
+  }
+  #edit {
+    border-right: 2px solid black;
+    transition: linear .15s;
+  }
+  #edit:hover {
+    background-color: rgba(255, 255, 0, .25);
+  }
+  #edit:hover svg {
+    transform: rotate(-15deg);
+  }
+  #delete:hover {
+    background-color: rgba(255, 0, 0, 0.25);
+  }
+  #delete:hover svg {
+    transform: scaleY(1.15);
+  }
+  //
+
+  svg {
+    font-size: 2vw;
+    margin: 1vw 0;
+  }
+  #edit {
+    color: #f2f530;
+  }
+  #delete {
+    color: #d62121;
+    cursor: pointer;
+  }
+  .btn-outline-success {
+    color: rgb(35, 143, 35);
+    border-color: rgb(27, 109, 27);
+    border: none;
+    border-bottom: 1px solid rgb(27, 109, 27);
+  }
+  .btn-outline-success:hover {
+    color: #fff;
+    background-color: rgb(35, 143, 35);
+  }
+}
