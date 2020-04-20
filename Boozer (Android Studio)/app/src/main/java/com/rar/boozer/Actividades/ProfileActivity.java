@@ -4,16 +4,18 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -25,23 +27,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.rar.boozer.Models.User;
 import com.rar.boozer.R;
 
+import java.io.IOException;
 import java.util.Objects;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView nick, email, preferencias;
     private Button btnEditAcc;
     private Button btnConEditAcc;
     private Button btnCanEditAcc;
 
     private EditText editNick;
-    private Spinner editPreferencias;
+
+    private String uid;
 
     private User user;
 
     private FirebaseUser fbuser;
-
-    private FirebaseDatabase fbdb;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -49,45 +56,96 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        nick = findViewById(R.id.profileUser);
-        email = findViewById(R.id.profileMail);
-        preferencias = findViewById(R.id.profilePreferences);
+        final TextView nickText, emailText;
+
+        nickText = findViewById(R.id.profileUser);
+        emailText = findViewById(R.id.profileMail);
 
         editNick = findViewById(R.id.editUser);
-        editPreferencias = findViewById(R.id.editPreferences);
+
+        user = new User();
 
         btnConEditAcc = findViewById(R.id.btnConfirmEditAccount);
         btnCanEditAcc = findViewById(R.id.btnCancelEditAccount);
 
         FirebaseAuth fbauth = FirebaseAuth.getInstance();
-        final String uid = Objects.requireNonNull(fbauth.getCurrentUser()).getUid();
 
         fbuser = fbauth.getCurrentUser();
-        fbdb = FirebaseDatabase.getInstance();
 
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
-        user = (User) bundle.getSerializable("userData");
+        uid = bundle.getString("userData");
+        Log.i("wiwowiwo", uid);
 
-        nick.setText(getString(R.string.user) + " " + user.getUser());
-        email.setText(getString(R.string.email) + " " + user.getEmail());
-        preferencias.setText(getString(R.string.preferences) + " " + user.getPreferences());
+        //Glide
+        final ImageView loading = findViewById(R.id.loadingUser);
+        Glide.with(this).load(R.drawable.loading).into(loading);
 
+        //Get data from DynamoDB
+        OkHttpClient client = new OkHttpClient();
+        String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerUser" +
+                "?uid=" + uid;
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+            }
+
+            //Get User
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull final Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    loading.setVisibility(View.INVISIBLE);
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            assert response.body() != null;
+                            String result = null;
+                            try {
+                                result = response.body().string().replaceAll("\"", "");
+                                Log.i("ApiResult", result);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            //Get name
+                            String name = result.substring(result.indexOf("S: ") + 3, result.indexOf("}"));
+                            nickText.setText(name);
+                            editNick.setText(name);
+                            user.setUser(name);
+                            Log.i("ApiResult", "name: " + name);
+                            result = result.substring(result.indexOf("}") + 3);
+                            //Check if it's an admin
+                            String isAdmin = result.substring(result.indexOf("BOOL: ") + 3, result.indexOf("}"));
+                            Log.i("ApiResult", "isAdmin: " + isAdmin);
+                            //Ignore Uid, as it won't be displayed
+                            result = result.substring(result.indexOf("}") + 3);
+                            result = result.substring(result.indexOf("}") + 3);
+                            //Get email
+                            String email = result.substring(result.indexOf("S: ") + 3, result.indexOf("}"));
+                            emailText.setText(email);
+                            user.setEmail(email);
+                            Log.i("ApiResult", "email: " + email);
+                        }
+                    });
+                }
+            }
+        });
 
         btnEditAcc = findViewById(R.id.btnEditAccount);
 
         btnEditAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nick.setVisibility(View.GONE);
-                email.setVisibility(View.GONE);
-                preferencias.setVisibility(View.GONE);
+                nickText.setVisibility(View.GONE);
+                emailText.setVisibility(View.GONE);
 
                 editNick.setVisibility(View.VISIBLE);
                 editNick.setEnabled(true);
-                editNick.setText(user.getUser());
-
-                editPreferencias.setVisibility(View.VISIBLE);
 
                 btnEditAcc.setVisibility(View.GONE);
                 btnEditAcc.setEnabled(false);
@@ -103,34 +161,48 @@ public class ProfileActivity extends AppCompatActivity {
         btnConEditAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.setUser(editNick.getText().toString());
-                user.setPreferences(editPreferencias.getSelectedItem().toString());
+                //Get data from DynamoDB
+                OkHttpClient client = new OkHttpClient();
+                String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/createBoozerUser" +
+                        "?uid=" + uid + "&email= " + user.getEmail() + "&user=" + editNick.getText();
+                Request request = new Request.Builder()
+                        .url(url)
+                        .build();
 
-                fbdb.getReference().child("usuarios").child(uid).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                client.newCall(request).enqueue(new Callback() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(getApplicationContext(), R.string.toast_account_updated, Toast.LENGTH_SHORT).show();
+                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
                     }
 
-                }).addOnFailureListener(new OnFailureListener() {
+                    //Create User
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(), R.string.toast_login_error, Toast.LENGTH_SHORT).show();
+                    public void onResponse(@NonNull Call call, @NonNull final Response response) throws IOException {
+                        if (response.isSuccessful()) {
+                            runOnUiThread(new Runnable() {
+
+                                @Override
+                                public void run() {
+
+                                    assert response.body() != null;
+                                    try {
+                                        Log.i("wiwowiwo", response.body().string());
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+                        }
                     }
                 });
-
-                endEdit();
-
                 finish();
-                startActivity(getIntent());
+                Intent intent = new Intent(ProfileActivity.this, IndexActivity.class);
+                startActivity(intent);
             }
         });
 
         btnCanEditAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                endEdit();
-
                 finish();
                 startActivity(getIntent());
             }
@@ -152,36 +224,33 @@ public class ProfileActivity extends AppCompatActivity {
 
                         fbuser.delete();
 
-                        DatabaseReference dbref = fbdb.getReference("usuarios");
-                        dbref.child(uid).removeValue();
+                        //Get data from DynamoDB
+                        OkHttpClient client = new OkHttpClient();
+                        String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/deleteBoozerUser" +
+                                "?uid=" + uid;
+                        Request request = new Request.Builder()
+                                .url(url)
+                                .build();
 
-                        Snackbar.make(view, getResources().getText(R.string.toast_account_deleted), Snackbar.LENGTH_LONG).show();
-                        Intent intent = new Intent(ProfileActivity.this, IndexActivity.class);
-                        startActivity(intent);
+                        client.newCall(request).enqueue(new Callback() {
+                            @Override
+                            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                            }
+
+                            //Delete User
+                            @Override
+                            public void onResponse(@NonNull Call call, @NonNull final Response response) throws IOException {
+                                if (response.isSuccessful()) {
+                                    Snackbar.make(view, getResources().getText(R.string.toast_account_deleted), Snackbar.LENGTH_LONG).show();
+                                    Intent intent = new Intent(ProfileActivity.this, IndexActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+                        });
                     }
                 });
                 builder.show();
             }
         });
-    }
-
-    public void endEdit() {
-        nick.setVisibility(View.VISIBLE);
-        email.setVisibility(View.VISIBLE);
-        preferencias.setVisibility(View.VISIBLE);
-
-        editNick.setVisibility(View.GONE);
-        editNick.setEnabled(false);
-
-        editPreferencias.setVisibility(View.GONE);
-
-        btnEditAcc.setVisibility(View.VISIBLE);
-        btnEditAcc.setEnabled(true);
-
-        btnConEditAcc.setVisibility(View.GONE);
-        btnConEditAcc.setEnabled(false);
-
-        btnCanEditAcc.setVisibility(View.GONE);
-        btnCanEditAcc.setEnabled(false);
     }
 }

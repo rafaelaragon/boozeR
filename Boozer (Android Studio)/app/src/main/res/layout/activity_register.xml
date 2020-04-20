@@ -103,17 +103,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- SPINNER: Preferencias -->
-    <Spinner
-        android:id="@+id/regPreferences"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:entries="@array/spinner_preferences"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmRegisterLayout" />
-
     <!-- REGISTER button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRegister"
@@ -123,7 +112,7 @@
         android:text="@string/btnGoRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regPreferences" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmRegisterLayout" />
 
     <!-- CANCEL button -->
     <com.google.android.material.button.MaterialButton

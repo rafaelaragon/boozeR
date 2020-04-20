@@ -8,12 +8,12 @@ public class User implements Serializable {
 
     private String user;
     private String email;
-    private String preferences;
+    private Boolean isAdmin;
 
-    public User(String user, String email, String preferences) {
+    public User(String user, String email, Boolean isAdmin) {
         this.user = user;
         this.email = email;
-        this.preferences = preferences;
+        this.isAdmin = isAdmin;
     }
 
     public User() {
@@ -33,14 +33,6 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPreferences() {
-        return preferences;
-    }
-
-    public void setPreferences(String preferences) {
-        this.preferences = preferences;
     }
 
 }

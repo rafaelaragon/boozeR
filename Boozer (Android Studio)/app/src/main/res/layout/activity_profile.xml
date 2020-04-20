@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Actividades.ProfileActivity">
 
+    <!--Loading gif-->
+    <ImageView
+        android:id="@+id/loadingUser"
+        android:layout_width="match_parent"
+        android:layout_height="312dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/loading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/profileUser"
         android:layout_width="match_parent"
@@ -23,15 +34,6 @@
         android:textAlignment="center"
         android:textSize="22sp"
         app:layout_constraintTop_toTopOf="@id/profileUser" />
-
-    <TextView
-        android:id="@+id/profilePreferences"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:textAlignment="center"
-        android:textSize="22sp"
-        app:layout_constraintTop_toTopOf="@id/profileMail" />
 
     <!-- campo USERNAME -->
     <com.google.android.material.textfield.TextInputLayout
@@ -59,19 +61,6 @@
             android:visibility="gone" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- SPINNER: Preferencias -->
-    <Spinner
-        android:id="@+id/editPreferences"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:visibility="gone"
-        android:entries="@array/spinner_preferences"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEditLayout"
-        app:boxStrokeColor="@color/colorAccent"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEditAccount"
