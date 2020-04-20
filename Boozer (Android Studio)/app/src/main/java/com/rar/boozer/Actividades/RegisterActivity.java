@@ -2,10 +2,10 @@ package com.rar.boozer.Actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,15 +20,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rar.boozer.Models.User;
 import com.rar.boozer.R;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText email, pass, confirmPass, user;
-
-    private Spinner pref;
 
     private FirebaseAuth fbauth;
     private FirebaseDatabase fbdatabase;
@@ -46,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
         pass = findViewById(R.id.regPassword);
         confirmPass = findViewById(R.id.regConfirm);
         user = findViewById(R.id.regUser);
-        pref = findViewById(R.id.regPreferences);
 
         Button btnReg = findViewById(R.id.btnRegister);
         Button btnCancelReg = findViewById(R.id.regCancel);
@@ -68,7 +73,6 @@ public class RegisterActivity extends AppCompatActivity {
                 final String pas = pass.getText().toString();
                 final String conPas = confirmPass.getText().toString();
                 final String usr = user.getText().toString();
-                final String pre = pref.getSelectedItem().toString();
 
                 //Revisa que el formulario esté relleno
                 if (ema.isEmpty() || usr.isEmpty() || pas.isEmpty() ||
@@ -98,14 +102,45 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), R.string.toast_login_error, Toast.LENGTH_LONG).show();
                                 } else {
-                                    // obtenemos UID del user registrado
+                                    // Get user's UID
                                     String uid = fbauth.getUid();
-                                    User user = new User(usr, ema, pre);
-                                    // obtener una referencia al documento USUARIOS en FB
-                                    DatabaseReference dbref = fbdatabase.getReference("usuarios");
-                                    //Guardamos la información en RealTime Database
+
+                                    User user = new User(usr, ema, false);
                                     assert uid != null;
-                                    dbref.child(uid).setValue(user);
+
+                                    //Get data from DynamoDB
+                                    OkHttpClient client = new OkHttpClient();
+                                    String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/createBoozerUser" +
+                                            "?uid=" + uid + "&email= " + user.getEmail() + "&user=" + user.getUser();
+                                    Request request = new Request.Builder()
+                                            .url(url)
+                                            .build();
+
+                                    client.newCall(request).enqueue(new Callback() {
+                                        @Override
+                                        public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                                        }
+
+                                        //Create User
+                                        @Override
+                                        public void onResponse(@NonNull Call call, @NonNull final Response response) throws IOException {
+                                            if (response.isSuccessful()) {
+                                                runOnUiThread(new Runnable() {
+
+                                                    @Override
+                                                    public void run() {
+
+                                                        assert response.body() != null;
+                                                        try {
+                                                            Log.i("wiwowiwo", response.body().string());
+                                                        } catch (IOException e) {
+                                                            e.printStackTrace();
+                                                        }
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    });
                                     fbauth.signOut();
                                     setResult(RESULT_OK);
                                     finish();

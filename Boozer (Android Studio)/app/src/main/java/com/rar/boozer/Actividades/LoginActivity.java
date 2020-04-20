@@ -15,12 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.rar.boozer.Models.User;
 import com.rar.boozer.R;
 
 import java.util.Objects;
@@ -28,7 +22,6 @@ import java.util.Objects;
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth fbauth;
-    private FirebaseDatabase fbdatabase;
 
     private EditText email, pass;
     private final int LOG_CODE = 100;
@@ -78,34 +71,19 @@ public class LoginActivity extends AppCompatActivity {
                                 else {
                                     String uid = Objects.requireNonNull(fbauth.getCurrentUser()).getUid();
 
-                                    fbdatabase = FirebaseDatabase.getInstance();
+                                    // creamos un diccionario
+                                    Bundle bundle = new Bundle();
+                                    bundle.putSerializable("userData", uid);
 
-                                    DatabaseReference userRef = fbdatabase.getReference().child("usuarios/" + uid);
-
-                                    userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                            if (dataSnapshot.hasChildren()) {
-                                                // obtenemos datos del user logueado
-                                                User user = dataSnapshot.getValue(User.class);
-
-                                                // creamos un diccionario
-                                                Bundle bundle = new Bundle();
-                                                bundle.putSerializable("userData", user);
-
-                                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                                // utilizando putExtra puedo almacenar información en la intención
-                                                intent.putExtras(bundle);
-                                                startActivityForResult(intent, LOG_CODE);
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                                        }
-                                    });
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    // utilizando putExtra puedo almacenar información en la intención
+                                    intent.putExtras(bundle);
+                                    startActivityForResult(intent, LOG_CODE);
                                 }
+
+
                             }
+
 
                         });
             }
