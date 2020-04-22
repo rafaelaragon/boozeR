@@ -8,6 +8,7 @@ import { Link, Redirect } from "react-router-dom";
 import { FaPlus, FaArrowLeft } from "react-icons/fa";
 import { TYPES } from "../../Consts";
 import Header from "../../components/Header/Header";
+import { toast } from "react-toastify";
 
 class New extends React.Component {
   constructor(props) {
@@ -53,21 +54,25 @@ class New extends React.Component {
       newImage,
     } = this.state;
 
-    await Axios.get(
-      `https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/createBoozerDrink?name=` +
-        newName +
-        `&type=` +
-        newType +
-        `&price=` +
-        newPrice +
-        `&vol=` +
-        newGraduation +
-        `&det=` +
-        newDetails +
-        `&url=` +
-        newImage
-    );
-    await this.setState({ redirect: true });
+    this.state.newName === ""
+      ? toast.error("❌ Escribe el nombre de la bebida")
+      : await Axios.get(
+          `https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/createBoozerDrink?name=` +
+            newName +
+            `&type=` +
+            newType +
+            `&price=` +
+            newPrice +
+            `&vol=` +
+            newGraduation +
+            `&det=` +
+            newDetails +
+            `&url=` +
+            newImage
+        );
+    this.state.newName === ""
+      ? console.log()
+      : await this.setState({ redirect: true });
   };
 
   render() {
