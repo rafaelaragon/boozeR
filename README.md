@@ -72,7 +72,7 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 - Terminé las funciones básicas de la página web (inicio de sesión, CRUD de bebidas), en un futuro controlaré el rol del usuario, para que sólo pueda editar un administrador.
 - Añadí un gif durante la carga de los componentes, tanto en web como en móvil.
 - Cambié ligeramente los estilos de la aplicación.
-### Semana 5 (20-25 Abril):
+### Semana 5 (20-24 Abril):
 - Migré los usuario de firebase (Realtime Databasa) a AWS (DynamoDB).
 - Creé e implementé las peticiones http para el CRUD de usuarios.
 - Añadí seguridad a la página web encriptando la contraseña. 
