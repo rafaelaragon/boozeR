@@ -73,7 +73,7 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 - Añadí un gif durante la carga de los componentes, tanto en web como en móvil.
 - Cambié ligeramente los estilos de la aplicación.
 ### Semana 5 (20-24 Abril):
-- Migré los usuario de firebase (Realtime Databasa) a AWS (DynamoDB).
+- Migré los usuario de firebase (Realtime Database) a AWS (DynamoDB).
 - Creé e implementé las peticiones http para el CRUD de usuarios.
 - Añadí seguridad a la página web encriptando la contraseña. 
 - Añadí alertas a la página web.
