@@ -9,14 +9,20 @@
   textarea {
     margin: auto;
     color: white;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(24, 24, 24) !important;
     border-color: rgba(107, 0, 0, 0.75);
   }
   input:focus,
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
   select:focus,
-  textarea:focus {
-    background-color: rgb(32, 32, 32);
+  textarea:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover {
+    background-color: rgb(53, 18, 18);
     color: white;
+    -webkit-text-fill-color: white ;
+    box-shadow: 0 0 0 30px rgb(24, 24, 24) inset;
   }
   label {
     margin: 0.75vh 0;
@@ -53,13 +59,13 @@
     width: 99.7vw;
   }
   .btn-outline-danger {
-    color: rgba(114, 7, 7, 0.75);
+    color: #6c1b1b;
     border: none;
     border-bottom: 1px solid rgb(70, 0, 0);
   }
   .btn-outline-danger:hover {
     color: #fff;
-    background-color: rgba(114, 7, 7, 0.75);
+    background-color: #6c1b1b;
   }
   .btn-outline-danger:focus {
     background-color: rgba(140, 7, 7, 0.75) !important;

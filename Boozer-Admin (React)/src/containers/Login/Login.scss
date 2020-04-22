@@ -1,0 +1,26 @@
+.Login {
+  color: white;
+  text-align: center;
+  font-size: 1.25em;
+  max-width: 100%;
+  overflow-x: hidden;
+  input {
+    margin: auto;
+    color: white;
+    background-color: rgb(24, 24, 24);
+    border-color: rgba(107, 0, 0, 0.75);
+    width: 40vw;
+    margin: .5vh auto 3vh;
+  }
+  input:focus{
+    background-color: rgb(32, 32, 32);
+    color: white;
+  }
+  label {
+    margin: 0.75vh 0;
+    width: 10vw;
+  }
+  button {
+    width: 40vw;
+  }
+}
