@@ -75,6 +75,7 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 ### Semana 5 (20-24 Abril):
 - Migré los usuario de firebase (Realtime Database) a AWS (DynamoDB).
 - Creé e implementé las peticiones http para el CRUD de usuarios.
-- Añadí seguridad a la página web encriptando la contraseña. 
+- Añadí seguridad a la página web encriptando la contraseña y bloqueando accesos por url si el usuario no se ha autenticado. 
 - Añadí alertas a la página web.
+- Implementé Redux a la página web.
 
