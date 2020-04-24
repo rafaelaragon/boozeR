@@ -9,6 +9,8 @@ import { FaArrowLeft, FaPlus } from "react-icons/fa";
 import { TYPES } from "../../Consts";
 import Loading from "../../components/Loading/Loading";
 import Header from "../../components/Header/Header";
+import { connect } from "react-redux";
+import { loadUser, loadDrink } from "../../Redux/Actions";
 
 class Drink extends React.Component {
   constructor(props) {
@@ -20,68 +22,49 @@ class Drink extends React.Component {
   }
 
   getDrink = async () => {
-    await Axios.get(
-      `https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerDrink?name=` +
-        this.state.name
-    ).then((res) => {
-      const drink = res.data.Item;
-      console.log(drink);
-      this.setState({
-        details: drink.details.S,
-        editDetails: drink.details.S,
-        price: drink.price.N,
-        editPrice: drink.price.N,
-        image: drink.image.S,
-        editImage: drink.image.S,
-        type: drink.type.S,
-        editType: drink.type.S,
-        graduation: drink.graduation.N,
-        editGraduation: drink.graduation.N,
-      });
+    await this.props.loadDrink(this.state.name);
+    await this.setState({
+      edType: this.props.drink.type,
+      edPrice: this.props.drink.price,
+      edGrad: this.props.drink.graduation,
+      edDet: this.props.drink.details,
+      edImg: this.props.drink.image,
     });
-    await this.setState({ isLoaded: true });
   };
 
   //Store info of edited drink
   setType = (event) => {
-    this.setState({ editType: event.target.value });
+    this.setState({ edType: event.target.value });
   };
   setPrice = (event) => {
-    this.setState({ editPrice: event.target.value });
+    this.setState({ edPrice: event.target.value });
   };
   setGraduation = (event) => {
-    this.setState({ editGraduation: event.target.value });
+    this.setState({ edGrad: event.target.value });
   };
   setDetails = (event) => {
-    this.setState({ editDetails: event.target.value });
+    this.setState({ edDet: event.target.value });
   };
   setImage = (event) => {
-    this.setState({ editImage: event.target.value });
+    this.setState({ edIm: event.target.value });
   };
 
   editDrink = async () => {
-    const {
-      name,
-      editType,
-      editPrice,
-      editGraduation,
-      editDetails,
-      editImage,
-    } = this.state;
-
+    const { name, edType, edPrice, edGrad, edDet, edImg } = this.state;
+    console.log("Drink -> editDrink -> edType", typeof edType);
     await Axios.get(
       `https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/createBoozerDrink?name=` +
         name +
         `&type=` +
-        editType +
+        (typeof edType === "object" ? edType.S : edType) +
         `&price=` +
-        editPrice +
+        (typeof edPrice === "object" ? edPrice.N : edPrice) +
         `&vol=` +
-        editGraduation +
+        (typeof edGrad === "object" ? edGrad.N : edGrad) +
         `&det=` +
-        editDetails +
+        (typeof edDet === "object" ? edDet.S : edDet) +
         `&url=` +
-        editImage
+        (typeof edImg === "object" ? edImg.S : edImg)
     );
     await this.setState({ redirect: true });
   };
@@ -91,14 +74,18 @@ class Drink extends React.Component {
   }
 
   render() {
-    const { name, details, price, image, type, graduation } = this.state;
-    if (!this.state.isLoaded) return <Loading />;
+    const { drink, isDrinkLoaded } = this.props;
+    const { name, details, price, image, type, graduation } = !!drink
+      ? drink
+      : "";
+    if (!this.props.user.isAdmin) return <Redirect to="/login" />;
+    else if (!isDrinkLoaded) return <Loading />;
     else if (this.state.redirect) {
       return <Redirect to="/drinks" />;
     } else {
       return (
         <div className="Drink">
-          <Header/>
+          <Header />
           <div id="return">
             <Link to="/drinks">
               <Button variant="outline-danger" size="lg" block>
@@ -107,14 +94,14 @@ class Drink extends React.Component {
             </Link>
           </div>
           {/* Details of selected drink */}
-          <img src={image} alt={name}></img>
-          <h1>{name}</h1>
-          <h2>{type}</h2>
+          <img src={image.S} alt={name.S}></img>
+          <h1>{name.S}</h1>
+          <h2>{type.S}</h2>
           <h3>
-            <span>{price} €</span>
-            <span>{graduation} %</span>
+            <span>{price.N} €</span>
+            <span>{graduation.N} %</span>
           </h3>
-          {!!details && details !== "none" ? <h4>{details}</h4> : ""}
+          {!!details.S && details.S !== "none" ? <h4>{details.S}</h4> : ""}
 
           <Form>
             <Form.Group controlId="editDrinkForm">
@@ -122,16 +109,12 @@ class Drink extends React.Component {
               <Form.Control
                 as="select"
                 placeholder="Type of alcohol (e.g. Brandy)"
+                defaultValue={type.S}
                 onChange={this.setType}
               >
-                {TYPES.map((type) =>
-                  //If an option matches with the drink, select it by default, otherwise don't
-                  type === this.state.type ? (
-                    <option selected="selected">{type}</option>
-                  ) : (
-                    <option>{type}</option>
-                  )
-                )}
+                {TYPES.map((type) => (
+                  <option key={type}>{type}</option>
+                ))}
               </Form.Control>
               <Form.Row>
                 <Col id="1st">
@@ -141,7 +124,7 @@ class Drink extends React.Component {
                     min="0"
                     placeholder="€"
                     className="number"
-                    defaultValue={price}
+                    defaultValue={price.N}
                     onChange={this.setPrice}
                   />
                 </Col>
@@ -153,7 +136,7 @@ class Drink extends React.Component {
                     max="100"
                     placeholder="%"
                     className="number"
-                    defaultValue={graduation}
+                    defaultValue={graduation.N}
                     onChange={this.setGraduation}
                   />
                 </Col>
@@ -162,14 +145,14 @@ class Drink extends React.Component {
               <Form.Control
                 as="textarea"
                 placeholder="Useful info"
-                defaultValue={details !== "none" ? details : ""}
+                defaultValue={details.S !== "none" ? details.S : ""}
                 onChange={this.setDetails}
               />
               <Form.Label>Url</Form.Label>
               <Form.Control
                 placeholder="Url of the drink"
                 type="url"
-                defaultValue={image}
+                defaultValue={image.S}
                 onChange={this.setImage}
               />
             </Form.Group>
@@ -190,4 +173,15 @@ class Drink extends React.Component {
   }
 }
 
-export default Drink;
+//Redux
+function mapState(state) {
+  return {
+    user: state.UserReducer.user,
+    drink: state.DrinkReducer.drink,
+    isDrinkLoaded: state.DrinkReducer.isDrinkLoaded,
+  };
+}
+
+const mapDispatch = { loadUser, loadDrink };
+
+export default connect(mapState, mapDispatch)(Drink);
