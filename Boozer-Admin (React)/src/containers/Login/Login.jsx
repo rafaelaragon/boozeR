@@ -1,15 +1,15 @@
 import React from "react";
 import "./Login.css";
 import Button from "react-bootstrap/Button";
-import Axios from "axios";
 import Form from "react-bootstrap/Form";
-import withFirebaseAuth from "react-with-firebase-auth";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "../../firebaseConfig";
 import { Redirect } from "react-router-dom";
 import SimpleCrypto from "simple-crypto-js";
 import { toast } from "react-toastify";
+import { loadUser, logout } from "../../Redux/Actions";
+import { connect } from "react-redux";
 
 //Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -46,25 +46,19 @@ class Login extends React.Component {
           //Check if the user is admin or not
           .then(async function (user) {
             let uid = user.user.uid;
-            await Axios.get(
-              `https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerUser?uid=` +
-                uid
-            ).then((res) => {
-              let user = res.data.Item;
-              const isAdmin = user.isAdmin.BOOL;
-              //If the user is admin redirect to Home, otherwise sign out
-              isAdmin
-                ? that.setState({ hasAccess: true })
-                : firebase
-                    .auth()
-                    .signOut()
-                    .then(
-                      toast.error("❌ No tienes permisos para entrar")
-                    )
-                    .catch(function (error) {
-                      console.log(error.message);
-                    });
-            });
+            await that.props.loadUser(uid);
+            const isAdmin = that.props.user.isAdmin.BOOL;
+            //If the user is admin redirect to Home, otherwise sign out
+            isAdmin
+              ? that.setState({ hasAccess: true })
+              : firebase
+                  .auth()
+                  .signOut()
+                  .then(toast.error("❌ No tienes permisos para entrar"))
+                  .then(that.props.logout())
+                  .catch(function (error) {
+                    console.log(error.message);
+                  });
           })
           .catch(function (error) {
             console.log(error.message);
@@ -86,7 +80,7 @@ class Login extends React.Component {
                 id="email"
                 type="email"
                 placeholder="JohnDoe@gmail.com"
-                autocomplete="off"
+                autoComplete="off"
                 onChange={this.setMail}
               />
               <Form.Label>Contraseña</Form.Label>
@@ -104,4 +98,13 @@ class Login extends React.Component {
   }
 }
 
-export default withFirebaseAuth({ firebaseAppAuth })(Login);
+//Redux
+function mapState(state) {
+  return {
+    user: state.UserReducer.user,
+  };
+}
+
+const mapDispatch = { loadUser, logout };
+
+export default connect(mapState, mapDispatch)(Login);

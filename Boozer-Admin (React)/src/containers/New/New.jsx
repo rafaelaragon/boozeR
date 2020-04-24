@@ -9,6 +9,8 @@ import { FaPlus, FaArrowLeft } from "react-icons/fa";
 import { TYPES } from "../../Consts";
 import Header from "../../components/Header/Header";
 import { toast } from "react-toastify";
+import { connect } from "react-redux";
+import { loadUser } from "../../Redux/Actions";
 
 class New extends React.Component {
   constructor(props) {
@@ -76,7 +78,8 @@ class New extends React.Component {
   };
 
   render() {
-    if (this.state.redirect) {
+    if (!this.props.user.isAdmin) return <Redirect to="/login" />;
+    else if (this.state.redirect) {
       return <Redirect to="/drinks" />;
     } else {
       return (
@@ -102,14 +105,9 @@ class New extends React.Component {
                 placeholder="Tipo de bebida (e.g. Brandy)"
                 onChange={this.setType}
               >
-                {TYPES.map((type) =>
-                  //Set "otro" as default drink
-                  type === "Otro" ? (
-                    <option selected="selected">{type}</option>
-                  ) : (
-                    <option>{type}</option>
-                  )
-                )}
+                {TYPES.map((type) => (
+                  <option key={type}>{type}</option>
+                ))}
               </Form.Control>
               <Form.Row>
                 <Col id="1st">
@@ -166,4 +164,13 @@ class New extends React.Component {
   }
 }
 
-export default New;
+//Redux
+function mapState(state) {
+  return {
+    user: state.UserReducer.user,
+  };
+}
+
+const mapDispatch = { loadUser };
+
+export default connect(mapState, mapDispatch)(New);
