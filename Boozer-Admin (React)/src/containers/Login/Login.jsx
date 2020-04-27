@@ -16,8 +16,8 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
 
 //SimpleCrypto
-var _secretKey = "Tragabuche";
-var simpleCrypto = new SimpleCrypto(_secretKey);
+var secretKey = "Tragabuche";
+var simpleCrypto = new SimpleCrypto(secretKey);
 
 class Login extends React.Component {
   state = { hasAccess: false };
@@ -92,7 +92,9 @@ class Login extends React.Component {
               />
             </Form.Group>
           </Form>
-          <Button onClick={this.login}>Login</Button>
+          <Button variant="danger" onClick={this.login}>
+            Login
+          </Button>
         </div>
       );
   }

@@ -1,11 +1,11 @@
 import React from "react";
 import "./Header.css";
-import Button from "react-bootstrap/Button";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import { Redirect } from "react-router-dom";
-import { logout } from "../../Redux/Actions";
+import { logout, loadUser } from "../../Redux/Actions";
 import { connect } from "react-redux";
+import Dropdown from "react-bootstrap/Dropdown";
 
 class Header extends React.Component {
   constructor(props) {
@@ -30,12 +30,22 @@ class Header extends React.Component {
     this.setState({ logout: true });
   };
   render() {
+    const { user } = this.props;
     if (this.state.logout) return <Redirect to="/login" />;
     else
       return (
         <div className="Header">
-          <Button onClick={this.logout}>Cerrar Sesión</Button>
-          <span>{this.state.email}</span>
+          <Dropdown>
+            <Dropdown.Toggle variant="danger" id="user">
+              {user.User.S}
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="custom">
+              <Dropdown.Item disabled id="disabled">
+                {user.Email.S}
+              </Dropdown.Item>
+              <Dropdown.Item onClick={this.logout}>Cerrar Sesión</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       );
   }
@@ -48,6 +58,6 @@ function mapState(state) {
   };
 }
 
-const mapDispatch = { logout };
+const mapDispatch = { loadUser, logout };
 
 export default connect(mapState, mapDispatch)(Header);

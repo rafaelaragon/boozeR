@@ -1,4 +1,27 @@
 .Header {
+  height: 8vh;
+  background-color: #6c1b1b;
+  .dropdown button {
     height: 8vh;
-    background-color: #6C1B1B;
+    text-align: right;
+    float: right;
+  }
+  button {
+    background-color: rgba(105, 14, 14, 0.65) !important;
+    border: none;
+    color: white;
+    font-weight: bold;
+  }
+  .dropdown-menu.custom {
+    background-color: #201f1e;
+  }
+  .dropdown-menu.custom > .dropdown-item {
+    color: white;
+  }
+  .dropdown-menu.custom > .dropdown-item:hover {
+    background-color: #181716;
+  }
+  .dropdown-menu.custom > .dropdown-item#disabled {
+    color: gray;
+  }
 }
