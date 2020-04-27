@@ -7,7 +7,6 @@ import Col from "react-bootstrap/Col";
 import { Link, Redirect } from "react-router-dom";
 import { FaPlus, FaArrowLeft } from "react-icons/fa";
 import { TYPES } from "../../Consts";
-import Header from "../../components/Header/Header";
 import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import { loadUser } from "../../Redux/Actions";
@@ -26,23 +25,29 @@ class New extends React.Component {
   }
 
   //Store info of the new drink
-  setName = (event) => {
-    this.setState({ newName: event.target.value });
-  };
-  setType = (event) => {
-    this.setState({ newType: event.target.value });
-  };
-  setPrice = (event) => {
-    this.setState({ newPrice: event.target.value });
-  };
-  setGraduation = (event) => {
-    this.setState({ newGraduation: event.target.value });
-  };
-  setDetails = (event) => {
-    this.setState({ newDetails: event.target.value });
-  };
-  setImage = (event) => {
-    this.setState({ newImage: event.target.value });
+  setNewInfo = (param, event) => {
+    switch (param) {
+      case "name":
+        this.setState({ newName: event.target.value });
+        break;
+      case "type":
+        this.setState({ newType: event.target.value });
+        break;
+      case "price":
+        this.setState({ newPrice: event.target.value });
+        break;
+      case "graduation":
+        this.setState({ newGraduation: event.target.value });
+        break;
+      case "details":
+        this.setState({ newDetails: event.target.value });
+        break;
+      case "image":
+        this.setState({ newImage: event.target.value });
+        break;
+      default:
+        break;
+    }
   };
 
   //Create a new drink
@@ -55,7 +60,7 @@ class New extends React.Component {
       newDetails,
       newImage,
     } = this.state;
-
+    //Every drink must have a name
     this.state.newName === ""
       ? toast.error("❌ Escribe el nombre de la bebida")
       : await Axios.get(
@@ -84,7 +89,6 @@ class New extends React.Component {
     } else {
       return (
         <div className="New">
-          <Header />
           <div id="return">
             <Link to="/drinks">
               <Button variant="outline-danger" size="lg" block>
@@ -97,13 +101,17 @@ class New extends React.Component {
               <Form.Label>Nombre</Form.Label>
               <Form.Control
                 placeholder="Nombre de la bebida"
-                onChange={this.setName}
+                onChange={(e) => {
+                  this.setNewInfo("name", e);
+                }}
               />
               <Form.Label>Tipo</Form.Label>
               <Form.Control
                 as="select"
                 placeholder="Tipo de bebida (e.g. Brandy)"
-                onChange={this.setType}
+                onChange={(e) => {
+                  this.setNewInfo("type", e);
+                }}
               >
                 {TYPES.map((type) => (
                   <option key={type}>{type}</option>
@@ -118,7 +126,9 @@ class New extends React.Component {
                     placeholder="€"
                     className="number"
                     defaultValue="0"
-                    onChange={this.setPrice}
+                    onChange={(e) => {
+                      this.setNewInfo("price", e);
+                    }}
                   />
                 </Col>
                 <Col>
@@ -130,7 +140,9 @@ class New extends React.Component {
                     placeholder="%"
                     className="number"
                     defaultValue="0"
-                    onChange={this.setGraduation}
+                    onChange={(e) => {
+                      this.setNewInfo("graduation", e);
+                    }}
                   />
                 </Col>
               </Form.Row>
@@ -138,13 +150,17 @@ class New extends React.Component {
               <Form.Control
                 as="textarea"
                 placeholder="Información útil"
-                onChange={this.setDetails}
+                onChange={(e) => {
+                  this.setNewInfo("details", e);
+                }}
               />
               <Form.Label>Url</Form.Label>
               <Form.Control
                 placeholder="Url de la bebida"
                 type="url"
-                onChange={this.setImage}
+                onChange={(e) => {
+                  this.setNewInfo("image", e);
+                }}
               />
             </Form.Group>
           </Form>

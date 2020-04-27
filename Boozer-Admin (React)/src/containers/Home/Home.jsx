@@ -20,7 +20,6 @@ class Home extends React.Component {
       `https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/deleteBoozerDrink?name=` +
         drinkName
     );
-    console.log(drinkName + "deleted");
     this.getDrinks();
   };
 

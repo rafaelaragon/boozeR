@@ -8,7 +8,6 @@ import Button from "react-bootstrap/Button";
 import { FaArrowLeft, FaPlus } from "react-icons/fa";
 import { TYPES } from "../../Consts";
 import Loading from "../../components/Loading/Loading";
-import Header from "../../components/Header/Header";
 import { connect } from "react-redux";
 import { loadUser, loadDrink } from "../../Redux/Actions";
 
@@ -17,7 +16,6 @@ class Drink extends React.Component {
     super(props);
     this.state = {
       name: this.props.match.params.drinkId,
-      details: null,
     };
   }
 
@@ -32,21 +30,27 @@ class Drink extends React.Component {
     });
   };
 
-  //Store info of edited drink
-  setType = (event) => {
-    this.setState({ edType: event.target.value });
-  };
-  setPrice = (event) => {
-    this.setState({ edPrice: event.target.value });
-  };
-  setGraduation = (event) => {
-    this.setState({ edGrad: event.target.value });
-  };
-  setDetails = (event) => {
-    this.setState({ edDet: event.target.value });
-  };
-  setImage = (event) => {
-    this.setState({ edIm: event.target.value });
+  //Store info of the edited drink
+  setEditInfo = (param, event) => {
+    switch (param) {
+      case "type":
+        this.setState({ edType: event.target.value });
+        break;
+      case "price":
+        this.setState({ edPrice: event.target.value });
+        break;
+      case "graduation":
+        this.setState({ edGrad: event.target.value });
+        break;
+      case "details":
+        this.setState({ edDet: event.target.value });
+        break;
+      case "image":
+        this.setState({ edImg: event.target.value });
+        break;
+      default:
+        break;
+    }
   };
 
   editDrink = async () => {
@@ -78,6 +82,12 @@ class Drink extends React.Component {
     const { name, details, price, image, type, graduation } = !!drink
       ? drink
       : "";
+    let imageString = !!image ? image.S : "";
+    //If the url is bad formatted or none is given, use a default image
+    imageString = imageString.includes("https://boozerdrinks.s3.amazonaws.com/")
+      ? imageString
+      : "https://boozerdrinks.s3.amazonaws.com/generic.png";
+
     if (!this.props.user.isAdmin) return <Redirect to="/login" />;
     else if (!isDrinkLoaded) return <Loading />;
     else if (this.state.redirect) {
@@ -85,7 +95,6 @@ class Drink extends React.Component {
     } else {
       return (
         <div className="Drink">
-          <Header />
           <div id="return">
             <Link to="/drinks">
               <Button variant="outline-danger" size="lg" block>
@@ -94,7 +103,7 @@ class Drink extends React.Component {
             </Link>
           </div>
           {/* Details of selected drink */}
-          <img src={image.S} alt={name.S}></img>
+          <img src={imageString} alt={name.S}></img>
           <h1>{name.S}</h1>
           <h2>{type.S}</h2>
           <h3>
@@ -110,7 +119,9 @@ class Drink extends React.Component {
                 as="select"
                 placeholder="Type of alcohol (e.g. Brandy)"
                 defaultValue={type.S}
-                onChange={this.setType}
+                onChange={(e) => {
+                  this.setEditInfo("type", e);
+                }}
               >
                 {TYPES.map((type) => (
                   <option key={type}>{type}</option>
@@ -125,7 +136,9 @@ class Drink extends React.Component {
                     placeholder="€"
                     className="number"
                     defaultValue={price.N}
-                    onChange={this.setPrice}
+                    onChange={(e) => {
+                      this.setEditInfo("price", e);
+                    }}
                   />
                 </Col>
                 <Col>
@@ -137,7 +150,9 @@ class Drink extends React.Component {
                     placeholder="%"
                     className="number"
                     defaultValue={graduation.N}
-                    onChange={this.setGraduation}
+                    onChange={(e) => {
+                      this.setEditInfo("graduation", e);
+                    }}
                   />
                 </Col>
               </Form.Row>
@@ -146,14 +161,18 @@ class Drink extends React.Component {
                 as="textarea"
                 placeholder="Useful info"
                 defaultValue={details.S !== "none" ? details.S : ""}
-                onChange={this.setDetails}
+                onChange={(e) => {
+                  this.setEditInfo("details", e);
+                }}
               />
               <Form.Label>Url</Form.Label>
               <Form.Control
                 placeholder="Url of the drink"
                 type="url"
-                defaultValue={image.S}
-                onChange={this.setImage}
+                defaultValue={imageString}
+                onChange={(e) => {
+                  this.setEditInfo("image", e);
+                }}
               />
             </Form.Group>
           </Form>
