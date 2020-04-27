@@ -78,4 +78,6 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 - Añadí seguridad a la página web encriptando la contraseña y bloqueando accesos por url si el usuario no se ha autenticado. 
 - Añadí alertas a la página web.
 - Implementé Redux a la página web.
+### Semana 6 (27 Abril-1 Mayo):
+- Modifiqué el Header de la página web.
 
