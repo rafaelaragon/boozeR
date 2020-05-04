@@ -78,6 +78,11 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 - Añadí seguridad a la página web encriptando la contraseña y bloqueando accesos por url si el usuario no se ha autenticado. 
 - Añadí alertas a la página web.
 - Implementé Redux a la página web.
-### Semana 6 (27 Abril-1 Mayo):
+### Semana 6 (27 Abril-01 Mayo):
 - Modifiqué el Header de la página web.
+- Mejoré el estilo de los formularios de la página web.
+- Creé dos nuevas peticiones a la API: Añadir bebida a favoritos y eliminar bebida de favoritos.
+- Implementé las anteriores peticiones en la aplicación.
+### Semana 7 (04-08 Mayo)
+- Añadí una animación decarga al botón de inicio de sesión en la página web.
 
