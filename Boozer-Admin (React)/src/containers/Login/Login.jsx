@@ -10,7 +10,6 @@ import SimpleCrypto from "simple-crypto-js";
 import { toast } from "react-toastify";
 import { loadUser, logout } from "../../Redux/Actions";
 import { connect } from "react-redux";
-import { Dot } from "react-animated-dots";
 
 //Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -21,7 +20,7 @@ var secretKey = "Tragabuche";
 var simpleCrypto = new SimpleCrypto(secretKey);
 
 class Login extends React.Component {
-  state = { hasAccess: false, isAuth: false };
+  state = { hasAccess: false };
 
   //Set email into state
   setMail = (event) => {
@@ -42,11 +41,8 @@ class Login extends React.Component {
       : !this.state.password
       ? toast.error("❌ Escribe tu contraseña")
       : //Login in firebase using decrypted password
-        (that.setState({ isAuth: true }),
-        firebaseAppAuth.signInWithEmailAndPassword(
-          email,
-          simpleCrypto.decrypt(password)
-        ))
+        firebaseAppAuth
+          .signInWithEmailAndPassword(email, simpleCrypto.decrypt(password))
           //Check if the user is admin or not
           .then(async function (user) {
             let uid = user.user.uid;
@@ -60,16 +56,13 @@ class Login extends React.Component {
                   .signOut()
                   .then(toast.error("❌ No tienes permisos para entrar"))
                   .then(that.props.logout())
-                  .then(that.setState({ isAuth: false }))
                   .catch(function (error) {
                     console.log(error.message);
                   });
           })
-          //When authentication fails
           .catch(function (error) {
             console.log(error.message);
             toast.error("❌ Correo o contraseña incorrectos");
-            that.setState({ isAuth: false });
           });
   };
 
@@ -101,15 +94,6 @@ class Login extends React.Component {
           </Form>
           <Button variant="danger" onClick={this.login}>
             Login
-            {this.state.isAuth ? (
-              <span>
-                <Dot>.</Dot>
-                <Dot>.</Dot>
-                <Dot>.</Dot>
-              </span>
-            ) : (
-              ""
-            )}
           </Button>
         </div>
       );
