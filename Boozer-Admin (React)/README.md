@@ -16,7 +16,7 @@ Finalmente, para acceder a las páginas que requieren autenticación, podéis in
 - `axios` para las peticiones a la API.
 - `bootstrap` y `react-bootstrap` principalmente para los formularios y los botones.
 - `firebase` y `react-with-firebase-auth` para la autenticación.
-- `node-sass` para trabajar los estilos.
+- `node-sass` para trabajar los estilos cómodamente.
 - `react-animated-dots` para añadir una animación mientras se revisa la autenticación.
 - `react-dom` y `react-router-dom` para el routing.
 - `react-toastify` para las notificaciones de error.
