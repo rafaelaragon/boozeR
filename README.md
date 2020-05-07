@@ -9,9 +9,6 @@ BoozeR es una aplicación móvil desarrollada en Android Studio que busca facili
 
 Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas. No obstante, también será posible gestionar bebidas sin alcohol, así como complementos para las mismas. </br>
 
-## _Instalación_
-- Boozer (Android Studio): Simplemente abrir el proyecto con android studio y pulsar en 'Run boozeR(Mayús+F10)'.
-
 ## _Contacto_
 En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar la aplicación, no dudes en contactarme a través de mi correo, rafa.ar2000@gmail.com.
 
