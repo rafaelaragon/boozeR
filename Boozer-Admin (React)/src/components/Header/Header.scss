@@ -1,14 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
 .Header {
-  height: 8vh;
   background-color: #6c1b1b;
-  .dropdown button {
-    height: 8vh;
-    text-align: right;
-    float: right;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  span {
+    padding: 0 5vh 0 2vh;
+    margin-top: -.5vh;
+    color: white;
+    font-size: 5.25vh;
+    font-family: 'Concert One', cursive;
+    background-color: #571616;
+    border-right: .5vh solid white;
+    border-radius: 0 1000px 0 0;
+  }
+  span#z {
+    border: none;
+    color: rgb(218, 218, 218);
+    padding: 0;
+    font-size: 6vh;
   }
   button {
+    height: 9vh;
     background-color: rgba(105, 14, 14, 0.65) !important;
     border: none;
+    border-radius: 1000px 0 0 0 !important;
+    padding-left: 5vh;
     color: white;
     font-weight: bold;
   }

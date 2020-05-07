@@ -10,6 +10,7 @@ import { TYPES } from "../../Consts";
 import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import { loadUser } from "../../Redux/Actions";
+import Header from "../../components/Header/Header";
 
 class New extends React.Component {
   constructor(props) {
@@ -89,9 +90,10 @@ class New extends React.Component {
     } else {
       return (
         <div className="New">
+          <Header />
           <div id="return">
             <Link to="/drinks">
-              <Button variant="outline-danger" size="lg" block>
+              <Button variant="outline-danger" size="lg">
                 <FaArrowLeft />
               </Button>
             </Link>

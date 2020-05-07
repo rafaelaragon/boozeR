@@ -10,6 +10,7 @@ import { TYPES } from "../../Consts";
 import Loading from "../../components/Loading/Loading";
 import { connect } from "react-redux";
 import { loadUser, loadDrink } from "../../Redux/Actions";
+import Header from "../../components/Header/Header";
 
 class Drink extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class Drink extends React.Component {
     };
   }
 
+  //Get info of the drink, and store it
   getDrink = async () => {
     await this.props.loadDrink(this.state.name);
     await this.setState({
@@ -53,6 +55,7 @@ class Drink extends React.Component {
     }
   };
 
+  //Edit the drink
   editDrink = async () => {
     const { name, edType, edPrice, edGrad, edDet, edImg } = this.state;
     console.log("Drink -> editDrink -> edType", typeof edType);
@@ -95,9 +98,10 @@ class Drink extends React.Component {
     } else {
       return (
         <div className="Drink">
+          <Header/>
           <div id="return">
             <Link to="/drinks">
-              <Button variant="outline-danger" size="lg" block>
+              <Button variant="outline-danger" size="lg">
                 <FaArrowLeft />
               </Button>
             </Link>
@@ -107,8 +111,8 @@ class Drink extends React.Component {
           <h1>{name.S}</h1>
           <h2>{type.S}</h2>
           <h3>
-            <span>{price.N} €</span>
-            <span>{graduation.N} %</span>
+            <span className="number">{price.N} €</span>
+            <span className="number">{graduation.N} %</span>
           </h3>
           {!!details.S && details.S !== "none" ? <h4>{details.S}</h4> : ""}
 

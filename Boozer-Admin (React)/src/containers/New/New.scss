@@ -21,8 +21,10 @@
   textarea:-webkit-autofill:hover {
     background-color: rgb(53, 18, 18);
     color: white;
-    -webkit-text-fill-color: white ;
-    box-shadow: 0 0 0 30px rgb(24, 24, 24) inset;
+    -webkit-text-fill-color: white;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset,
+      0px 0px 8px rgba(83, 0, 0, 0.75);
+    border-color: rgba(107, 0, 0, 0.75);
   }
   label {
     margin: 0.75vh 0;
@@ -55,13 +57,12 @@
     font-size: 2vw;
     margin: 1vw 0;
   }
-  .btn {
-    width: 99.7vw;
-  }
   .btn-outline-danger {
     color: #6c1b1b;
     border: none;
-    border-bottom: 1px solid rgb(70, 0, 0);
+    border-bottom: .75vh solid rgb(70, 0, 0);
+    width: 20vw;
+    border-radius: 0 0 1000px 1000px !important;
   }
   .btn-outline-danger:hover {
     color: #fff;
@@ -71,10 +72,12 @@
     background-color: rgba(140, 7, 7, 0.75) !important;
   }
   .btn-outline-success {
+    margin-top: 5.5vh;
     color: rgb(35, 143, 35);
     border-color: rgb(27, 109, 27);
     border: none;
-    border-top: 1px solid rgb(27, 109, 27);
+    border-top: .75vh solid rgb(27, 109, 27);
+    border-radius: 1000px 1000px 0 0 !important;
   }
   .btn-outline-success:hover {
     color: #fff;

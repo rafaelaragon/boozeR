@@ -14,6 +14,7 @@ class Header extends React.Component {
       logout: false,
     };
   }
+  //Logout from firebase
   logout = async () => {
     var that = this;
     await firebase.auth().onAuthStateChanged(function (user) {
@@ -31,10 +32,14 @@ class Header extends React.Component {
   };
   render() {
     const { user } = this.props;
+    //If the user has signed out, redirect it to the login page
     if (this.state.logout) return <Redirect to="/login" />;
     else
       return (
         <div className="Header">
+          <span>
+            Boo<span id="z">z</span>eR
+          </span>
           <Dropdown>
             <Dropdown.Toggle variant="danger" id="user">
               {user.User.S}

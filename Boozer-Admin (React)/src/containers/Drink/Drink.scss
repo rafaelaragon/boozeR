@@ -6,16 +6,23 @@
   label {
     width: 12vw;
   }
+  img {
+    margin: 3vh 0;
+    border-radius: 15px 15px 45px 45px;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgb(25, 25, 25) 33%,
+      rgba(20, 20, 20, 1) 100%
+    );
+    width: 22vw;
+    height: 32vw;
+  }
   label.inline {
     text-align: left;
     margin-left: 2vw;
   }
-
-  img {
-    width: 20vw;
-    height: 30vw;
-  }
-  span {
+  span.number {
     margin: 0 6vw;
     padding: 5vw 0;
   }
@@ -25,7 +32,7 @@
     width: 60vw;
     margin: auto;
     color: white;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(24, 24, 24) !important;
     border-color: rgba(107, 0, 0, 0.75);
   }
   input:focus,
@@ -38,7 +45,9 @@
     background-color: rgb(53, 18, 18);
     color: white;
     -webkit-text-fill-color: white;
-    box-shadow: 0 0 0 30px rgb(24, 24, 24) inset;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset,
+      0px 0px 8px rgba(83, 0, 0, 0.75);
+    border-color: rgba(107, 0, 0, 0.75);
   }
   input {
     width: 30vw;
@@ -71,7 +80,9 @@
   .btn-outline-danger {
     color: #6c1b1b;
     border: none;
-    border-bottom: 1px solid rgb(70, 0, 0);
+    border-bottom: .75vh solid rgb(70, 0, 0);
+    width: 20vw;
+    border-radius: 0 0 1000px 1000px !important;
   }
   .btn-outline-danger:hover {
     color: #fff;
@@ -84,7 +95,8 @@
     color: rgb(35, 143, 35);
     border-color: rgb(27, 109, 27);
     border: none;
-    border-top: 1px solid rgb(27, 109, 27);
+    border-top: .75vh solid rgb(27, 109, 27);
+    border-radius: 1000px 1000px 0 0 !important;
   }
   .btn-outline-success:hover {
     color: #fff;

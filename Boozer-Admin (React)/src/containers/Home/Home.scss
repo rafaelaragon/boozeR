@@ -1,4 +1,5 @@
 .Home {
+  text-align: center;
   img {
     width: 15vw;
     height: 20vw;
@@ -64,10 +65,12 @@
     margin: 1vw 0;
   }
   .btn-outline-success {
+    width: 20vw;
     color: rgb(35, 143, 35);
     border-color: rgb(27, 109, 27);
     border: none;
-    border-bottom: 1px solid rgb(27, 109, 27);
+    border-bottom: .75vh solid rgb(27, 109, 27);
+    border-radius: 0 0 1000px 1000px !important;
   }
   .btn-outline-success:hover {
     color: #fff;
