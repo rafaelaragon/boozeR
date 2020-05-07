@@ -84,5 +84,9 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 - Creé dos nuevas peticiones a la API: Añadir bebida a favoritos y eliminar bebida de favoritos.
 - Implementé las anteriores peticiones en la aplicación.
 ### Semana 7 (04-08 Mayo)
-- Añadí una animación decarga al botón de inicio de sesión en la página web.
+- Añadí una animación de carga al botón de inicio de sesión en la página web.
+- Optimicé las funciones e hice el código de la página web más "legible", además de comentarlo.
+- Mejoré los estilos de la página web.
+- Creé dos nuevas peticionesa la API: Añadir bebida a la lista negra y eliminar la bebida de la lista negra.
+- Implementé las peticiones de favoritos y de lista negra a la aplicación móvil.
 
