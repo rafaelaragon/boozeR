@@ -12,6 +12,17 @@ Si se han seguido los pasos, la aplicación debería abrirse en una pestaña nue
 
 Finalmente, para acceder a las páginas que requieren autenticación, podéis iniciar sesión con el correo *admin@gmail.com* y la contraseña *123456*. Podéis probar la aplicación cuanto queráis (crear, editar y borrar bebidas), pero porfavor, dejad la base de datos tal como os la encontréis.
 
+## Dependencias utilizadas:
+- `axios` para las peticiones a la API.
+- `bootstrap` y `react-bootstrap` principalmente para los formularios y los botones.
+- `firebase` y `react-with-firebase-auth` para la autenticación.
+- `node-sass` para trabajar los estilos.
+- `react-animated-dots` para añadir una animación mientras se revisa la autenticación.
+- `react-dom` y `react-router-dom` para el routing.
+- `react-toastify` para las notificaciones de error.
+- `redux` y `redux-thunk` para aplicar redux a la aplicación.
+- `simple-crypto-js` para encriptar la contraseña antes de añadirla al estado.
+
 ## Páginas de la aplicación:
 
 ### Login
