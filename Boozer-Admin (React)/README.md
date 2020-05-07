@@ -8,6 +8,10 @@ Teniendo el proyecto descargado, para poder iniciar la aplicación hay que escri
 1. `npm install` para instalar todas las dependencias del proyecto.
 2. `npm start` para que la aplicación se abra.
 
+Si se han seguido los pasos, la aplicación debería abrirse en una pestaña nueva en vuestro navegador predeterminado. 
+
+Finalmente, para acceder a las páginas que requieren autenticación, podéis iniciar sesión con el correo *admin@gmail.com* y la contraseña *123456*. Podéis probar la aplicación cuanto queráis (crear, editar y borrar bebidas), pero porfavor, dejar la base de datos tal como la encontrasteis.
+
 ## Páginas de la aplicación:
 
 ### Login
