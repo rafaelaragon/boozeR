@@ -10,7 +10,7 @@ Teniendo el proyecto descargado, para poder iniciar la aplicación hay que escri
 
 Si se han seguido los pasos, la aplicación debería abrirse en una pestaña nueva en vuestro navegador predeterminado. 
 
-Finalmente, para acceder a las páginas que requieren autenticación, podéis iniciar sesión con el correo *admin@gmail.com* y la contraseña *123456*. Podéis probar la aplicación cuanto queráis (crear, editar y borrar bebidas), pero porfavor, dejar la base de datos tal como la encontrasteis.
+Finalmente, para acceder a las páginas que requieren autenticación, podéis iniciar sesión con el correo *admin@gmail.com* y la contraseña *123456*. Podéis probar la aplicación cuanto queráis (crear, editar y borrar bebidas), pero porfavor, dejad la base de datos tal como os la encontréis.
 
 ## Páginas de la aplicación:
 
