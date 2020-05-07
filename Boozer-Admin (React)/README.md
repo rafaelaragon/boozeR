@@ -4,7 +4,9 @@ Boozer-Admin es la aplicación web de Boozer creada usando React. Ha sido creada
 ## Páginas de la aplicación:
 
 ### Login
-Creada para restringirla entrada a la aplicación web. Sólo pueden iniciar sesión los usuarios que, además de estar registrados en firebase, tengan permisos de administración.
+<img src="media/Login.png" height="600px">
+  </br></br>
+Creada para restringir la entrada a la aplicación web. Sólo pueden iniciar sesión los usuarios que, además de estar registrados en firebase, tengan permisos de administración.
 
 Al intentar iniciar sesión se revisa, por orden, que se cumpla lo siguiente:
 - Los campos no estén vacíos.
