@@ -33,7 +33,3 @@
   - Borrar Cuenta
 <img src="media/profile_delete.jpg" height="600px">
 </br>
-
-## _Contacto_
-En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar la aplicación, no dudes en contactarme a trav-es de mi correo, rafa.ar2000@gmail.com.
-
