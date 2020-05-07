@@ -1,6 +1,13 @@
 # Boozer-Admin
 Boozer-Admin es la aplicación web de Boozer creada usando React. Ha sido creada para que los administradores puedan gestionar las bebidas de la aplicación móvil. Pudiendo así crear, editar y borrar bebidas.
 
+## Instalación
+Para la versión final, intentaré hostear la página web en Github Pages. Por ahora, para poder usarla en local, debéis de tener una versión estable de NodeJS y de npm.
+
+Teniendo el proyecto descargado, para poder iniciar la aplicación hay que escribir en un terminal (en la raíz del proyecto):
+1. `npm install` para instalar todas las dependencias del proyecto.
+2. `npm start` para que la aplicación se abra.
+
 ## Páginas de la aplicación:
 
 ### Login
