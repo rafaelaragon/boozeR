@@ -23,6 +23,7 @@ class Home extends React.Component {
     this.getDrinks();
   };
 
+  //Put every drink in a "card" using lists
   getCards = () => {
     const drinks = this.props.drinks;
     let key = 0;
@@ -56,8 +57,7 @@ class Home extends React.Component {
   }
 
   render() {
-    // eslint-disable-next-line no-unused-vars
-    const { user, drinks, areDrinksLoaded } = this.props;
+    const { user, areDrinksLoaded } = this.props;
     if (!user.isAdmin) return <Redirect to="/login" />;
     else if (!areDrinksLoaded) return <Loading />;
     else {
@@ -66,7 +66,7 @@ class Home extends React.Component {
           <Header />
           <div id="addDrink">
             <Link to="/new">
-              <Button variant="outline-success" size="lg" block>
+              <Button variant="outline-success" size="lg">
                 <FaPlus />
               </Button>
             </Link>
