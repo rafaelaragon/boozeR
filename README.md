@@ -46,5 +46,5 @@ En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar l
 - Mejoré los estilos de la página web.
 - Creé dos nuevas peticionesa la API: Añadir bebida a la lista negra y eliminar la bebida de la lista negra.
 - Implementé las peticiones de favoritos y de lista negra a la aplicación móvil.
-- Preparé elrepositorio para la primera entrega del proyecto.
+- Preparé el repositorio para la primera entrega del proyecto.
 
