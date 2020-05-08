@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkBackground"
-    tools:context=".Actividades.MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <FrameLayout
         android:id="@+id/contenedor"
@@ -20,8 +20,7 @@
         android:id="@+id/bottom_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:forceDarkAllowed="false"
+        android:background="@color/bottomNav"
         android:translationY="7dp"
         app:itemIconSize="30sp"
         app:itemIconTint="@layout/bottom_navigation_selector"
