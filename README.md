@@ -19,7 +19,7 @@ Para la autenticación se utiliza Firebase Auth.
 ### Base de datos
 La información de las bebidas, así como la de los usuarios se guarda en DynamoDB, una base de datos no-SQL creada por Amazon.
 ### API
-La API ha sido creada en AWS API-Gateway.
+La API ha sido creada con API-Gateway, un servicio de Amazon Web Services.
 ### Almacenamiento
 Las imágenes de las bebidas se almacenan en Amazon Simple Storage Service (S3).
 
