@@ -41,9 +41,9 @@ Finalmente, si se intenta acceder a una página de la aplicación sin tener perm
 <img src="media/Drinks.png" height="600px">
   </br>
 Aquí se puede ver una lista de todas las bebidas guardadas en la base de datos. El administrador tiene la opción de:
-- Crear una nueva bebida pulsando el botón con el símbolo "+".
-- Editar una bebida en particular, pulsando el lápiz (✏️) que aparece bajo la misma.
-- Borrar una bebida, pulsando la papelera (🗑️) que aparece bajo la misma.
+  - Crear una nueva bebida pulsando el botón con el símbolo "+".
+  - Editar una bebida en particular, pulsando el lápiz (✏️) que aparece bajo la misma.
+  - Borrar una bebida, pulsando la papelera (🗑️) que aparece bajo la misma.
 
 ### New
 <img src="media/New.png" height="600px">
