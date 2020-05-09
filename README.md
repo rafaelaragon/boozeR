@@ -12,15 +12,15 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 ## _¿Cómo se ha hecho BoozeR?_
 ### App móvil 📱
 La app se ha creado usando Android Studio, y cualquier dispositivo Android con API de nivel 21 o mayor debería poder usarla sin problemas.
-### Aplicación web 
+### Aplicación web 💻
 La aplicación web se hizo con React, una librería de Javascript.
-### Autenticación
+### Autenticación 🔑
 Para la autenticación se utiliza Firebase Auth.
-### Base de datos
+### Base de datos 💿
 La información de las bebidas, así como la de los usuarios se guarda en DynamoDB, una base de datos no-SQL creada por Amazon.
-### API
+### API 📬
 La API ha sido creada con API-Gateway, un servicio de Amazon Web Services.
-### Almacenamiento
+### Almacenamiento 📂
 Las imágenes de las bebidas se almacenan en Amazon Simple Storage Service (S3).
 
 ## _Contacto_
