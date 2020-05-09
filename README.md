@@ -4,13 +4,13 @@
 ### Quizás no quieras gastarte mucho dinero. A lo mejor quieres probar un ron nuevo. O quizás simplemente no quieras algo muy cargado.
 Para esos casos, y para muchos más, nació ***BoozeR***.
 
-## _¿Qué es BoozeR?_
+## _¿Qué es BoozeR?_ 🍺
 BoozeR es una aplicación móvil desarrollada en Android Studio que busca facilitar la vida a los usuarios que quieran descubrir bebidas nuevas.
 
 Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas. No obstante, también será posible gestionar bebidas sin alcohol, así como complementos para las mismas. </br>
 
 ## _¿Cómo se ha hecho BoozeR?_
-### App móvil
+### App móvil 📱
 La app se ha creado usando Android Studio, y cualquier dispositivo Android con API de nivel 21 o mayor debería poder usarla sin problemas.
 ### Aplicación web 
 La aplicación web se hizo con React, una librería de Javascript.
