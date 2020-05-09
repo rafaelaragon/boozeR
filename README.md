@@ -1,7 +1,7 @@
 # _BoozeR_
 ## [Presentación](https://docs.google.com/presentation/d/1V-Md0SyKP87gJIY4NDrheRQVYlVeGGNqkmiQywAaGYU/edit?usp=sharing)
 ## [Readme de la app móvil](https://github.com/rafaelaragon/boozeR/blob/master/Boozer%20(Android%20Studio)/README.md)
-## [Readme de la aplicación web](Boozer-Admin (React)/README.md)
+## [Readme de la aplicación web](https://github.com/rafaelaragon/boozeR/blob/master/Boozer-Admin%20(React)/README.md)
 
 ## ¿Alguna vez has tenido problemas a la hora de elegir qué beber?
 ### Quizás no quieras gastarte mucho dinero. A lo mejor quieres probar un ron nuevo. O quizás simplemente no quieras algo muy cargado.
