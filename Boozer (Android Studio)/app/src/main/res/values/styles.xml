@@ -3,13 +3,14 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/actionBar</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:backgroundTint">@color/colorPrimary</item>
         <item name="boxStrokeColor">#fff</item>
         <item name="boxStrokeWidth">2dp</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -20,6 +21,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:windowTranslucentNavigation">false</item>
     </style>
 
     <style name="DialogTheme" parent="Theme.MaterialComponents.Dialog.Alert">

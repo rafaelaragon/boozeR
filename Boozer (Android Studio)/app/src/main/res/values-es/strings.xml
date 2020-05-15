@@ -9,12 +9,23 @@
     <string name="toast_login_error">Ha ocurrido un error</string>
     <string name="toast_login_cancelled">Se ha cancelado el Inicio de Sesión</string>
     <string name="toast_register_cancelled">Se ha cancelado el Registro</string>
-    <string-array name="spinner_preferences">
-        <item>Sin preferencias</item>
-        <item>Dulce - Suave</item>
-        <item>Dulce - Fuerte</item>
-        <item>Amargo - Suave</item>
-        <item>Amargo - Fuerte</item>
+    <string-array name="spinner_types">
+        <item>Cualquiera</item>
+        <item>Aguardiente</item>
+        <item>Anís</item>
+        <item>Brandy</item>
+        <item>Cerveza</item>
+        <item>Champagne</item>
+        <item>Ginebra</item>
+        <item>Licor</item>
+        <item>Pulke</item>
+        <item>Ron</item>
+        <item>Sake</item>
+        <item>Sidra</item>
+        <item>Tequila</item>
+        <item>Vino</item>
+        <item>Vodka</item>
+        <item>Whisky</item>
     </string-array>
     <string name="toast_error_empty">Porfavor, rellene el formulario...</string>
     <string name="toast_error_password">Las contraseñas no coinciden</string>
@@ -46,4 +57,5 @@
     <string name="btn_edit_account">Editar cuenta</string>
     <string name="btnConfirm">Aceptar</string>
     <string name="toast_account_updated">Su cuenta ha sido modificada con éxito</string>
+    <string name="btnApply">Aplicar</string>
 </resources>

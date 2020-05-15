@@ -14,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rar.boozer.Fragments.CalculatorFragment;
 import com.rar.boozer.Fragments.CatalogueFragment;
+import com.rar.boozer.Fragments.FavoritesFragment;
 import com.rar.boozer.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Fragment catalogueFragment = new CatalogueFragment();
     private Fragment calculatorFragment = new CalculatorFragment();
+    private Fragment favoritesFragment = new FavoritesFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.bottomCatalogue:
                         if (isLoaded(catalogueFragment.getClass().getSimpleName(), R.id.bottomCatalogue)) {
                             getSupportFragmentManager().beginTransaction().replace(R.id.layoutMain, catalogueFragment).commit();
+                        }
+                        break;
+                    case R.id.bottomFavorites:
+                        if (isLoaded(favoritesFragment.getClass().getSimpleName(), R.id.bottomFavorites)) {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.layoutMain, favoritesFragment).commit();
                         }
                         break;
                     case R.id.bottomCalculator:
