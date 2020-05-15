@@ -1,5 +1,7 @@
 package com.rar.boozer.Activities;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,6 +18,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rar.boozer.R;
@@ -103,7 +107,8 @@ public class DrinkActivity extends AppCompatActivity {
                             String image = imgAux.substring(0, imgAux.indexOf("}"));
                             //If the image is not valid use a generic one instead
                             String defImage = "https://boozerdrinks.s3.amazonaws.com/generic.png";
-                            if(!image.contains("https://boozerdrinks.s3.amazonaws.com/")) image = defImage;
+                            if (!image.contains("https://boozerdrinks.s3.amazonaws.com/"))
+                                image = defImage;
 
                             Picasso.get()
                                     .load(image)
@@ -118,6 +123,7 @@ public class DrinkActivity extends AppCompatActivity {
                             String gradAux = result.substring(result.indexOf("graduation: {N: ") + 16);
                             String graduation = gradAux.substring(0, gradAux.indexOf("}"));
                             graduationTextView.setText(graduation + "%");
+                            Log.i("ApiResult", result);
 
                             Log.i("ApiResult", "details: " + details + ", price: " + price
                                     + ", name: " + name + ", image: " + image + ", type: " + type
@@ -206,15 +212,9 @@ public class DrinkActivity extends AppCompatActivity {
                 addFavBtn.setEnabled(false);
                 delFavBtn.setEnabled(false);
 
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        finish();
-                        overridePendingTransition(0, 0);
-                        startActivity(getIntent());
-                        overridePendingTransition(0, 0);
-                    }
-                }, 800);
+                final Intent myIntent = new Intent(DrinkActivity.this, MainActivity.class);
+                finish();
+                startActivity(myIntent);
             }
         });
 
@@ -235,15 +235,9 @@ public class DrinkActivity extends AppCompatActivity {
                 addFavBtn.setEnabled(false);
                 delFavBtn.setEnabled(false);
 
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        finish();
-                        overridePendingTransition(0, 0);
-                        startActivity(getIntent());
-                        overridePendingTransition(0, 0);
-                    }
-                }, 800);
+                final Intent myIntent = new Intent(DrinkActivity.this, MainActivity.class);
+                finish();
+                startActivity(myIntent);
             }
         });
     }

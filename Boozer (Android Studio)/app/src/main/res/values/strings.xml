@@ -11,12 +11,23 @@
     <string name="toast_login_error">An error has occurred</string>
     <string name="toast_login_cancelled">Login cancelled</string>
     <string name="toast_register_cancelled">Register cancelled</string>
-    <string-array name="spinner_preferences">
-        <item>No preferences</item>
-        <item>Sweet - Mild</item>
-        <item>Sweet - Strong</item>
-        <item>Bitter - Mild</item>
-        <item>Bitter - Strong</item>
+    <string-array name="spinner_types">
+        <item>Cualquiera</item>
+        <item>Aguardiente</item>
+        <item>Anís</item>
+        <item>Brandy</item>
+        <item>Cerveza</item>
+        <item>Champagne</item>
+        <item>Ginebra</item>
+        <item>Licor</item>
+        <item>Pulke</item>
+        <item>Ron</item>
+        <item>Sake</item>
+        <item>Sidra</item>
+        <item>Tequila</item>
+        <item>Vino</item>
+        <item>Vodka</item>
+        <item>Whisky</item>
     </string-array>
     <string name="toast_error_empty">Please, fill out the form...</string>
     <string name="toast_error_password">Passwords don\'t match</string>
@@ -51,4 +62,7 @@
     <string name="btn_edit_account">Edit account</string>
     <string name="btnConfirm">Accept</string>
     <string name="toast_account_updated">Your account has been successfully edited</string>
+    <string name="btnApply">Apply</string>
+    <string name="alertMaxVol" translatable="false">Max: 100%</string>
+    <string name="alertMaxPrice">Max: 100,00 €/l</string>
 </resources>

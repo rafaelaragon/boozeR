@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/adjust_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:id="@+id/typesSpinner"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/priceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alertMaxPrice"
+        android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/typesSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!--Price slider icon-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/priceIcon"
+        android:layout_width="25dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/euros"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceText" />
+
+    <!-- Slider price. -->
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sliderPrice"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:stepSize="0.5"
+        android:value="50"
+        android:valueFrom="0"
+        android:valueTo="50"
+        app:activeTickColor="@color/colorAccent"
+        app:haloColor="@color/colorAccent"
+        app:layout_constraintStart_toEndOf="@+id/priceIcon"
+        app:layout_constraintTop_toBottomOf="@+id/priceText"
+        app:thumbColor="@color/white"
+        app:trackColor="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/maxVolText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alertMaxVol"
+        android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintTop_toBottomOf="@+id/sliderPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!--Slider icon-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/maxVolIcon"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="11dp"
+        android:src="@drawable/vol"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxVolText" />
+
+    <!-- Slider max vol. -->
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sliderVol"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:value="100"
+        android:valueFrom="0"
+        android:valueTo="100"
+        app:activeTickColor="@color/colorAccent"
+        app:haloColor="@color/colorAccent"
+        app:layout_constraintStart_toEndOf="@+id/maxVolIcon"
+        app:layout_constraintTop_toBottomOf="@+id/maxVolText"
+        app:thumbColor="@color/white"
+        app:trackColor="@color/colorAccent" />
+
+    <!--Blacklist Switch-->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchMaterial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:checked="false"
+        android:text="Lista negra "
+        android:textColor="@color/white"
+        app:thumbTint="@color/colorAccent"
+        app:trackTint="@color/disabled"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sliderVol" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

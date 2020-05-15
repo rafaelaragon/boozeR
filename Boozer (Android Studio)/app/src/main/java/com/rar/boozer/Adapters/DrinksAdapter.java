@@ -3,6 +3,7 @@ package com.rar.boozer.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,7 +69,6 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.listHolder
         }
 
         void BindHolder(final Drink item) {
-
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

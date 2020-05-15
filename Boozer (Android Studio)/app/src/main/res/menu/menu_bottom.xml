@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--Catálogo-->
+    <!--Catalogue-->
     <item
         android:id="@+id/bottomCatalogue"
         android:icon="@drawable/catalogo"
         android:title=""
         android:checked="true">
     </item>
-    <!--Filtro-->
+    <!--Favorites-->
+    <item
+        android:id="@+id/bottomFavorites"
+        android:icon="@drawable/favorites"
+        android:title="">
+    </item>
+    <!--Filter-->
     <item
         android:id="@+id/bottomCalculator"
         android:icon="@drawable/filter"

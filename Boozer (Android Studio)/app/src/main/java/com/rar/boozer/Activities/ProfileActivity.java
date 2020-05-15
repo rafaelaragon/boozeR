@@ -62,10 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseAuth fbauth = FirebaseAuth.getInstance();
 
         fbuser = fbauth.getCurrentUser();
-
-        Bundle bundle = getIntent().getExtras();
-        assert bundle != null;
-        uid = bundle.getString("userData");
+        uid = fbauth.getUid()  ;
 
         //Glide
         final ImageView loading = findViewById(R.id.loadingUser);
@@ -97,6 +94,7 @@ public class ProfileActivity extends AppCompatActivity {
                             String result = null;
                             try {
                                 result = response.body().string().replaceAll("\"", "");
+                                Log.i("oohooh", result);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
