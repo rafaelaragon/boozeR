@@ -58,4 +58,7 @@
     <string name="btnConfirm">Aceptar</string>
     <string name="toast_account_updated">Su cuenta ha sido modificada con éxito</string>
     <string name="btnApply">Aplicar</string>
+    <string name="noFavInfo">Parece que no tienes bebidas favoritas...</string>
+    <string name="search">Busca bebidas</string>
+    <string name="emptySearchInfo">No se han encontrado bebidas</string>
 </resources>
