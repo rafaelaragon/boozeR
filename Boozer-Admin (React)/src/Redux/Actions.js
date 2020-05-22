@@ -50,7 +50,7 @@ export function logout() {
 export function loadDrinks() {
   return (dispatch) => {
     return fetch(
-      "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerDrinks"
+      "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getAllBoozerDrinks"
     )
       .then((res) => res.json())
       .then((result) => {
