@@ -22,6 +22,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.rar.boozer.Fragments.CatalogueFragment;
 import com.rar.boozer.R;
 import com.rar.boozer.Services.ApiService;
 import com.squareup.picasso.Picasso;

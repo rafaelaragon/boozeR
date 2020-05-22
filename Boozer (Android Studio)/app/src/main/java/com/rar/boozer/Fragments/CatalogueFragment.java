@@ -1,17 +1,23 @@
 package com.rar.boozer.Fragments;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -53,6 +59,10 @@ public class CatalogueFragment extends Fragment {
 
     private DrinksAdapter adapter;
 
+    private SearchView searchView = null;
+
+    private Handler mHandler = new Handler();
+
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,7 +77,7 @@ public class CatalogueFragment extends Fragment {
 
         drinks = new ArrayList<>();
 
-        Intent intent = getActivity().getIntent();
+        Intent intent = Objects.requireNonNull(getActivity()).getIntent();
         String value = intent.getStringExtra("request");
         Log.i("boozerApi", "request: " + value);
 
@@ -111,7 +121,6 @@ public class CatalogueFragment extends Fragment {
                     public void onNothingSelected(AdapterView<?> parent) {
 
                     }
-
                 });
 
                 //Max Price/Litre Slider
@@ -146,8 +155,7 @@ public class CatalogueFragment extends Fragment {
                 builder.setPositiveButton(R.string.btnApply, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        //Restart the activity with the new request in a bundle
-
+                        //Restart this fragment with the api request in a bundle
                         String showBlacklist = blacklist.isChecked() ? "True" : "False"; //Python hates java booleans
                         Log.i("wiwowiwo", showBlacklist);
                         String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerDrinks" +
@@ -215,11 +223,68 @@ public class CatalogueFragment extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                    //If no drinks were found, wait 3 seconds and restart
+                    if (result.length() < 4) {
+                        loading.setVisibility(View.INVISIBLE);
+                        mHandler.postDelayed(new Runnable() {
+                            public void run() {
+                                String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerDrinks" +
+                                        "?uid=" + uid + "&type=Cualquiera&price=50.0&vol=100.0&blacklist=False";
+                                Intent myIntent = new Intent(getActivity(), MainActivity.class);
+                                myIntent.putExtra("request", url);
+                                startActivity(myIntent);
+                            }
+                        }, 2000);
+                    }
                 }
             }
         });
         registerForContextMenu(recyclerView);
         return view;
+    }
+
+    //The rest of the code is used to prepare the searchbar
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, @NonNull MenuInflater inflater) {
+        MenuItem searchItem = menu.findItem(R.id.search);
+        SearchManager searchManager = (SearchManager) Objects.requireNonNull
+                (getActivity()).getSystemService(Context.SEARCH_SERVICE);
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+        }
+        if (searchView != null) {
+            assert searchManager != null;
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+
+            //Restart this fragment with the api request in a bundle
+            SearchView.OnQueryTextListener queryTextListener = new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    return true;
+                }
+
+                //Restart this fragment with the api request in a bundle
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    Log.i("onQueryTextSubmit", query);
+                    String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerSearchDrinks" +
+                            "?search=" + query;
+                    Intent myIntent = new Intent(getActivity(), MainActivity.class);
+                    myIntent.putExtra("request", url);
+                    startActivity(myIntent);
+                    return true;
+                }
+            };
+            searchView.setOnQueryTextListener(queryTextListener);
+        }
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
 }

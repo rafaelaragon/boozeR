@@ -65,4 +65,7 @@
     <string name="btnApply">Apply</string>
     <string name="alertMaxVol" translatable="false">Max: 100%</string>
     <string name="alertMaxPrice">Max: 100,00 €/l</string>
+    <string name="noFavInfo">It seems that you don\'t have favorite drinks...</string>
+    <string name="search">Search drinks</string>
+    <string name="emptySearchInfo">No drinks were found</string>
 </resources>

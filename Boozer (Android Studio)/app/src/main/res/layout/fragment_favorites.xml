@@ -7,16 +7,23 @@
     tools:context=".Fragments.FavoritesFragment"
     android:scrollbarThumbVertical="@color/colorPrimaryDark">
 
+    <!--No drinks added textview-->
+    <TextView
+        android:id="@+id/noFavWarning"
+        android:layout_width="match_parent"
+        android:textSize="28sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:textAlignment="center"
+        android:text="@string/noFavInfo"/>
+
     <!--Loading gif-->
     <ImageView
         android:id="@+id/loadingDrink"
         android:layout_width="match_parent"
         android:layout_height="312dp"
         android:layout_marginTop="60dp"
-        android:src="@drawable/loading"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/loading" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/drinksFavorites"

@@ -7,6 +7,16 @@
     tools:context=".Fragments.CatalogueFragment"
     android:scrollbarThumbVertical="@color/colorPrimaryDark">
 
+    <!--No drinks added text-->
+    <TextView
+        android:id="@+id/emptySearchWarning"
+        android:layout_width="match_parent"
+        android:textSize="28sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:textAlignment="center"
+        android:text="@string/emptySearchInfo"/>
+
     <!--Loading gif-->
     <ImageView
         android:id="@+id/loadingDrink"

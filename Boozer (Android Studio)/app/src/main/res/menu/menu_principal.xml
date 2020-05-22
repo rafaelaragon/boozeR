@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mnuProfile"
         android:title="@string/menu_profile">
@@ -8,5 +9,12 @@
         android:id="@+id/mnuLogout"
         android:title="@string/menu_logout">
     </item>
+    <!--Search bar-->
 
+    <!--collapseActionView|ifRoom-->
+    <item android:id="@+id/search"
+        android:title="@string/search"
+        android:icon="@drawable/search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
 </menu>
