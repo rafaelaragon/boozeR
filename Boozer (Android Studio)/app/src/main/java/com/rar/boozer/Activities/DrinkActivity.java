@@ -1,12 +1,9 @@
 package com.rar.boozer.Activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,11 +15,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.rar.boozer.Fragments.CatalogueFragment;
 import com.rar.boozer.R;
 import com.rar.boozer.Services.ApiService;
 import com.squareup.picasso.Picasso;
@@ -66,12 +60,10 @@ public class DrinkActivity extends AppCompatActivity {
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
-            @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
             }
 
             //Get the Drink
-            @Override
             public void onResponse(@NonNull Call call, @NonNull final Response response) {
                 if (response.isSuccessful()) {
                     runOnUiThread(new Runnable() {
@@ -94,6 +86,7 @@ public class DrinkActivity extends AppCompatActivity {
                             String detAux = result.substring(result.indexOf("details: {S: ") + 13);
                             String details = detAux.substring(0, detAux.indexOf("}"));
                             //If details equals "none", hide them
+                            details = fixString(details);
                             if (!details.equals("none")) detailsTextView.setText(details);
                             //Get price
                             String priceAux = result.substring(result.indexOf("price: {N: ") + 11);
@@ -102,6 +95,7 @@ public class DrinkActivity extends AppCompatActivity {
                             //Get name
                             String nameAux = result.substring(result.indexOf("name: {S: ") + 10);
                             String name = nameAux.substring(0, nameAux.indexOf("}"));
+                            name = fixString(name);
                             nameTextView.setText(name);
                             //Get image
                             String imgAux = result.substring(result.indexOf("image: {S: ") + 11);
@@ -124,11 +118,6 @@ public class DrinkActivity extends AppCompatActivity {
                             String gradAux = result.substring(result.indexOf("graduation: {N: ") + 16);
                             String graduation = gradAux.substring(0, gradAux.indexOf("}"));
                             graduationTextView.setText(graduation + "%");
-                            Log.i("ApiResult", result);
-
-                            Log.i("ApiResult", "details: " + details + ", price: " + price
-                                    + ", name: " + name + ", image: " + image + ", type: " + type
-                                    + ", graduation: " + graduation);
                         }
                     });
                 }
@@ -165,7 +154,6 @@ public class DrinkActivity extends AppCompatActivity {
                             String userResult = null;
                             try {
                                 userResult = response.body().string().replaceAll("\"", "");
-                                Log.i("wiwowiwo", "" + userResult);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -186,8 +174,6 @@ public class DrinkActivity extends AppCompatActivity {
                                         .getColor(R.color.favorite)));
                                 delFavBtn.setEnabled(false);
                             }
-                            Log.i("wiwowiwo", "blackList: " + blackList[0]);
-                            Log.i("wiwowiwo", "favorites: " + favorites[0]);
                         }
                     });
                 }
@@ -214,6 +200,9 @@ public class DrinkActivity extends AppCompatActivity {
                 delFavBtn.setEnabled(false);
 
                 final Intent myIntent = new Intent(DrinkActivity.this, MainActivity.class);
+                String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerDrinks" +
+                        "?uid=" + uid + "&type=Cualquiera&price=50.0&vol=100.0&blacklist=False";
+                myIntent.putExtra("request", url);
                 finish();
                 startActivity(myIntent);
             }
@@ -241,6 +230,26 @@ public class DrinkActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+    }
+
+    public static String fixString(String unicodeString) {
+        int length = unicodeString.length();
+        //Remove unicode prefix
+        unicodeString = unicodeString.replaceAll("\\\\u00", "");
+        //Replace unicode chars with UTF-8
+        unicodeString = unicodeString.replaceAll("f1", "ñ");
+        unicodeString = unicodeString.replaceAll("c1", "Á");
+        unicodeString = unicodeString.replaceAll("e1", "á");
+        unicodeString = unicodeString.replaceAll("e4", "ä");
+        unicodeString = unicodeString.replaceAll("c9", "É");
+        unicodeString = unicodeString.replaceAll("e9", "é");
+        unicodeString = unicodeString.replaceAll("cd", "Í");
+        unicodeString = unicodeString.replaceAll("ed", "í");
+        unicodeString = unicodeString.replaceAll("d3", "Ó");
+        unicodeString = unicodeString.replaceAll("f3", "ó");
+        unicodeString = unicodeString.replaceAll("da", "Ú");
+        unicodeString = unicodeString.replaceAll("fa", "ú");
+        return unicodeString;
     }
 }
 

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -94,7 +93,6 @@ public class ProfileActivity extends AppCompatActivity {
                             String result = null;
                             try {
                                 result = response.body().string().replaceAll("\"", "");
-                                Log.i("oohooh", result);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -118,11 +116,6 @@ public class ProfileActivity extends AppCompatActivity {
                             String email = emAux.substring(0, emAux.indexOf("}"));
                             emailText.setText(email);
                             user.setEmail(email);
-
-                            Log.i("ApiResult", result);
-                            Log.i("ApiResult", "name: " + name);
-                            Log.i("ApiResult", "isAdmin: " + isAdmin);
-                            Log.i("ApiResult", "email: " + email);
                         }
                     });
                 }
