@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -79,7 +78,6 @@ public class CatalogueFragment extends Fragment {
 
         Intent intent = Objects.requireNonNull(getActivity()).getIntent();
         String value = intent.getStringExtra("request");
-        Log.i("boozerApi", "request: " + value);
 
         //Glide
         final ImageView loading = view.findViewById(R.id.loadingDrink);
@@ -157,7 +155,6 @@ public class CatalogueFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int id) {
                         //Restart this fragment with the api request in a bundle
                         String showBlacklist = blacklist.isChecked() ? "True" : "False"; //Python hates java booleans
-                        Log.i("wiwowiwo", showBlacklist);
                         String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerDrinks" +
                                 "?uid=" + uid + "&type=" + type[0] + "&price=" + maxPriceSlider.getValue() +
                                 "&vol=" + maxVolSlider.getValue() + "&blacklist=" + showBlacklist;
@@ -212,7 +209,6 @@ public class CatalogueFragment extends Fragment {
                             Drink d = new Drink(nameString, imageString);
                             drinks.add(d);
                         }
-                        Log.i("boozerApi", "lista: " + drinks.toString());
                         //Call DrinksAdapter
                         Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
                             @Override
@@ -273,7 +269,6 @@ public class CatalogueFragment extends Fragment {
                 //Restart this fragment with the api request in a bundle
                 @Override
                 public boolean onQueryTextSubmit(String query) {
-                    Log.i("onQueryTextSubmit", query);
                     String url = "https://t08nzfqhxk.execute-api.us-east-1.amazonaws.com/default/getBoozerSearchDrinks" +
                             "?search=" + query;
                     Intent myIntent = new Intent(getActivity(), MainActivity.class);

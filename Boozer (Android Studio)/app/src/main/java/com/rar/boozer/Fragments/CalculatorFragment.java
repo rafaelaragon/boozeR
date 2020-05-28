@@ -2,7 +2,6 @@ package com.rar.boozer.Fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,33 +53,18 @@ public class CalculatorFragment extends Fragment {
                 float m = Float.parseFloat(weight.getText().toString());
 
                 res = Double.parseDouble(result.getText().toString().substring(0, result.getText().length() - 1));
-                Log.i("alcohol", "Resultado: " + res);
                 res += A / (r * m);
                 res = Math.round(res * 100.0) / 100.0;
                 result.setText(res + "%");
 
                 //Comprobación de advertencias
-                if (res >= 0.3) {
-                    warning.setText(R.string.warning_drive_new);
-                }
-                if (res >= 0.5) {
-                    warning.setText(R.string.warning_drive);
-                }
-                if (res >= 1.0) {
-                    warning.setText(R.string.warning_nausea);
-                }
-                if (res >= 2.0) {
-                    warning.setText(R.string.warning_blackout);
-                }
-                if (res >= 3.0) {
-                    warning.setText(R.string.warning_stupor);
-                }
-                if (res >= 4.0) {
-                    warning.setText(R.string.warning_coma);
-                }
-                if (res >= 5.0) {
-                    warning.setText(R.string.warning_rip);
-                }
+                if (res >= 0.3) warning.setText(R.string.warning_drive_new);
+                if (res >= 0.5) warning.setText(R.string.warning_drive);
+                if (res >= 1.0) warning.setText(R.string.warning_nausea);
+                if (res >= 2.0) warning.setText(R.string.warning_blackout);
+                if (res >= 3.0) warning.setText(R.string.warning_stupor);
+                if (res >= 4.0) warning.setText(R.string.warning_coma);
+                if (res >= 5.0) warning.setText(R.string.warning_rip);
             }
         });
 

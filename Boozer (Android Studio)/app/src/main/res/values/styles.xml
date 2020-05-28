@@ -31,8 +31,4 @@
         <item name="android:windowBackground">@color/darkBackground</item>
     </style>
 
-    <style name="CustomNavBar">
-        <item name="android:colorPrimary">@color/colorAccent</item>
-    </style>
-
 </resources>
