@@ -233,22 +233,14 @@ public class DrinkActivity extends AppCompatActivity {
     }
 
     public static String fixString(String unicodeString) {
-        int length = unicodeString.length();
-        //Remove unicode prefix
-        unicodeString = unicodeString.replaceAll("\\\\u00", "");
         //Replace unicode chars with UTF-8
-        unicodeString = unicodeString.replaceAll("f1", "ñ");
-        unicodeString = unicodeString.replaceAll("c1", "Á");
-        unicodeString = unicodeString.replaceAll("e1", "á");
-        unicodeString = unicodeString.replaceAll("e4", "ä");
-        unicodeString = unicodeString.replaceAll("c9", "É");
-        unicodeString = unicodeString.replaceAll("e9", "é");
-        unicodeString = unicodeString.replaceAll("cd", "Í");
-        unicodeString = unicodeString.replaceAll("ed", "í");
-        unicodeString = unicodeString.replaceAll("d3", "Ó");
-        unicodeString = unicodeString.replaceAll("f3", "ó");
-        unicodeString = unicodeString.replaceAll("da", "Ú");
-        unicodeString = unicodeString.replaceAll("fa", "ú");
+        unicodeString = unicodeString.replaceAll("\\\\u00f1", "ñ");
+        unicodeString = unicodeString.replaceAll("\\\\u00e1", "á");
+        unicodeString = unicodeString.replaceAll("\\\\u00e4", "ä");
+        unicodeString = unicodeString.replaceAll("\\\\u00e9", "é");
+        unicodeString = unicodeString.replaceAll("\\\\u00ed", "í");
+        unicodeString = unicodeString.replaceAll("\\\\u00f3", "ó");
+        unicodeString = unicodeString.replaceAll("\\\\u00fa", "ú");
         return unicodeString;
     }
 }
