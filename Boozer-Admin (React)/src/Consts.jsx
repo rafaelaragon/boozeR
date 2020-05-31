@@ -1,6 +1,5 @@
 export const TYPES = [
   "Otro",
-  "Aguardiente",
   "Anís",
   "Brandy",
   "Cerveza",
