@@ -113,6 +113,7 @@ public class DrinkActivity extends AppCompatActivity {
                             //Get type
                             String typeAux = result.substring(result.indexOf("type: {S: ") + 10);
                             String type = typeAux.substring(0, typeAux.indexOf("}"));
+                            type = fixString(type);
                             typeTextView.setText(type);
                             //Get graduation
                             String gradAux = result.substring(result.indexOf("graduation: {N: ") + 16);
