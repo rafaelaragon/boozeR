@@ -13,7 +13,6 @@
     <string name="toast_register_cancelled">Register cancelled</string>
     <string-array name="spinner_types">
         <item>Cualquiera</item>
-        <item>Aguardiente</item>
         <item>Anís</item>
         <item>Brandy</item>
         <item>Cerveza</item>
