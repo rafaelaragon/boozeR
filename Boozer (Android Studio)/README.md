@@ -20,14 +20,19 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
      * #### Filtro <br/><br/><img src="media/catalogue_2-v3.jpg" height="600px"><br/><br/>
      * #### Barra de Búsqueda </br><br/><img src="media/catalogue_3-v3.jpg" height="600px"><br/><br/>
    - ### Bebidas Favoritas </br><br/>
+      Aquí se muestran las bebidas que más le gustan al usuario
      <img src="media/favorites.jpg" height="600px">
      <br/><br/>
    - ### Calculador de Alcohol en Sangre </br><br/>
        <img src="media/calculator-v3.jpg" height="600px"><br/><br/>
 ## 5. Perfil </br>
    - ### Datos del Usuario 
-   Aquí se muestran los datos del usuario, almacenados en la tabla "Users" en DynamoDB<br/><br/>
+   Aquí se muestran los datos del usuario, almacenados en la tabla *Users* en **DynamoDB**<br/><br/>
    <img src="media/profile-v2.jpg" height="600px"></br><br/>
-   - ### Editar Perfil</br></br><img src="media/profile_edit-v3.jpg" height="600px"></br><br/>
-   - ### Borrar Usuario</br></br><img src="media/profile_delete-v3.jpg" height="600px">
+   - ### Editar Perfil
+   Es posible cambiar el nombre de Usuario. Al hacerlo, se actualiza la base de datos y se cierra la sesión</br></br>
+   <img src="media/profile_edit-v3.jpg" height="600px"></br><br/>
+   - ### Borrar Usuario
+   Si decides borrar la cuenta, se borrará el usuario de la base de datos y se eliminará el usuario de **Firebase**</br></br>
+   <img src="media/profile_delete-v3.jpg" height="600px">
       
