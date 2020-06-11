@@ -19,26 +19,26 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
 
 4. Vista Principal, que a su vez contiene varios fragmentos:
    - Catálogo de Bebidas
-     - Catálogo <br/><br/>
+     * Catálogo <br/><br/>
      <img src="media/catalogue_1-v3.jpg" height="600px">
-     <br/>
-     - Filtro <br/><br/>
+     <br/><br/>
+     * Filtro <br/><br/>
      <img src="media/catalogue_2-v3.jpg" height="600px">
-     <br/>
-     - Barra de Búsqueda </br><br/>
+     <br/><br/>
+     * Barra de Búsqueda </br><br/>
      <img src="media/catalogue_3-v3.jpg" height="600px">
-     <br/>
+     <br/><br/>
    - Bebidas Favoritas </br><br/>
      <img src="media/favorites.jpg" height="600px">
-     <br/>
+     <br/><br/>
    - Calculador de Alcohol en Sangre </br><br/>
        <img src="media/calculator-v3.jpg" height="600px">
 ## 5. Perfil</br></br>
-<img src="media/profile-v2.jpg" height="600px">
-</br>
-      - Editar Perfil</br></br>
-<img src="media/profile_edit-v3.jpg" height="600px">
-</br>
-      - Borrar Usuario</br></br>
-<img src="media/profile_delete-v3.jpg" height="600px">
-</br>
+   <img src="media/profile-v2.jpg" height="600px">
+   </br>
+   - Editar Perfil</br></br>
+   <img src="media/profile_edit-v3.jpg" height="600px">
+   </br>
+   - Borrar Usuario</br></br>
+   <img src="media/profile_delete-v3.jpg" height="600px">
+   </br>
