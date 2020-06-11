@@ -23,7 +23,7 @@ Esta actividad sirve tanto para registrar al usuario en **Firebase** como para a
      * #### Filtro 
          Es posible filtrar las bebidas según su tipo, graduación y precio, además de mostrar las bebidas de la **lista negra**<br/><br/><img src="media/catalogue_2-v3.jpg" height="600px"><br/><br/>
      * #### Barra de Búsqueda 
-         En caso de querer buscar una bebida en particular, basta con tocar la lupa de la parte superior derecha. Trashacerlo, el usuario podrá introducir por teclado el nombre de la bebida, y esta aparecerá</br><br/><img src="media/catalogue_3-v3.jpg" height="600px"><br/><br/>
+         En caso de querer buscar una bebida en particular, basta con tocar la lupa de la parte superior derecha. Tras hacerlo, el usuario podrá introducir por teclado el nombre de la bebida, y esta aparecerá</br><br/><img src="media/catalogue_3-v3.jpg" height="600px"><br/><br/>
    - ### Bebidas Favoritas
       Aquí se muestran las bebidas que más le gustan al usuario </br><br/>
      <img src="media/favorites.jpg" height="600px">
