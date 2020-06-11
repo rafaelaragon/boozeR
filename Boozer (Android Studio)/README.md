@@ -26,7 +26,8 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
        <img src="media/calculator-v3.jpg" height="600px"><br/><br/>
 ## 5. Perfil </br>
    - ### Datos del Usuario 
-   Wiwowiwo<br/><br/><img src="media/profile-v2.jpg" height="600px"></br><br/>
+   Aquí se muestran los datos del usuario, almacenados en la tabla "Users" en DynamoDB<br/><br/>
+   <img src="media/profile-v2.jpg" height="600px"></br><br/>
    - ### Editar Perfil</br></br><img src="media/profile_edit-v3.jpg" height="600px"></br><br/>
    - ### Borrar Usuario</br></br><img src="media/profile_delete-v3.jpg" height="600px">
       
