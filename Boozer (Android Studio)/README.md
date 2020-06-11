@@ -11,11 +11,11 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
 
 ## 2. Registro</br>
 <img src="media/register-v2.jpg" height="600px">
-</br></br>
+</br>
 
 ## 3. Inicio de Sesión</br>
 <img src="media/login-v2.jpg" height="600px">
-</br></br>
+</br>
 
 ## 4. Vista Principal, que a su vez contiene varios fragmentos:
    - Catálogo de Bebidas <br/>
