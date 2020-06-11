@@ -5,36 +5,30 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 ## Instalación
 Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/blob/master/BoozeR_08-05-2020.apk) e instalarla en el dispositivo. (Se requiere nivel de API 21 o superior).
 # _Secciones de BoozeR_
-## 1. Índice</br>
+1. Índice</br>
 <img src="media/index-v2.jpg" height="600px">
 </br>
 
-## 2. Registro</br>
+2. Registro</br>
 <img src="media/register-v2.jpg" height="600px">
 </br></br>
 
-## 3. Inicio de Sesión</br>
+3. Inicio de Sesión</br>
 <img src="media/login-v2.jpg" height="600px">
 </br></br>
 
-## 4. Vista Principal, que a su vez contiene varios fragmentos:</br>
-### - Catálogo de Bebidas
-###   - Catálogo
-  <img src="media/catalogue_1-v3.jpg" height="600px">
-  </br></br>
-###   - Filtro </br></br>
-  <img src="media/catalogue_2-v3.jpg" height="600px">
-  </br></br>
-###   - Barra de Búsqueda </br></br>
-  <img src="media/catalogue_3-v3.jpg" height="600px">
-  </br></br>
-### - Bebidas Favoritas</br></br>
-  <img src="media/favorites.jpg" height="600px">
-  </br></br>
-### - Calculador de Alcohol en Sangre</br></br>
-  <img src="media/calculator-v3.jpg" height="600px">
-  </br></br>
-  
+4. Vista Principal, que a su vez contiene varios fragmentos:
+   - Catálogo de Bebidas
+     - Catálogo
+     <img src="media/catalogue_1-v3.jpg" height="600px">
+     - Filtro
+     <img src="media/catalogue_2-v3.jpg" height="600px">
+     - Barra de Búsqueda </br></br>
+     <img src="media/catalogue_3-v3.jpg" height="600px">
+   - Bebidas Favoritas</br></br>
+     <img src="media/favorites.jpg" height="600px">
+   - Calculador de Alcohol en Sangre</br></br>
+       <img src="media/calculator-v3.jpg" height="600px">
 ## 5. Perfil</br></br>
 <img src="media/profile-v2.jpg" height="600px">
 </br>
