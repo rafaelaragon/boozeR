@@ -5,15 +5,15 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 ## Instalación
 Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/blob/master/BoozeR_08-05-2020.apk) e instalarla en el dispositivo. (Se requiere nivel de API 21 o superior).
 # _Secciones de BoozeR_
-## 1. Índice</br></br>
+## 1. Índice</br>
 <img src="media/index-v2.jpg" height="600px">
 </br>
 
-## 2. Registro</br></br>
+## 2. Registro</br>
 <img src="media/register-v2.jpg" height="600px">
 </br></br>
 
-## 3. Inicio de Sesión</br></br>
+## 3. Inicio de Sesión</br>
 <img src="media/login-v2.jpg" height="600px">
 </br></br>
 
