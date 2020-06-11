@@ -18,14 +18,14 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
 </br></br>
 
 ## 4. Vista Principal, que a su vez contiene varios fragmentos:</br>
-### - Catálogo de Bebidas</br></br>
-      * Catálogo
+### - Catálogo de Bebidas
+###   - Catálogo
   <img src="media/catalogue_1-v3.jpg" height="600px">
   </br></br>
-      * Filtro </br></br>
+###   - Filtro </br></br>
   <img src="media/catalogue_2-v3.jpg" height="600px">
   </br></br>
-      * Barra de Búsqueda </br></br>
+###   - Barra de Búsqueda </br></br>
   <img src="media/catalogue_3-v3.jpg" height="600px">
   </br></br>
 ### - Bebidas Favoritas</br></br>
@@ -38,9 +38,9 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
 ## 5. Perfil</br></br>
 <img src="media/profile-v2.jpg" height="600px">
 </br>
-      * Editar Perfil</br></br>
+      - Editar Perfil</br></br>
 <img src="media/profile_edit-v3.jpg" height="600px">
 </br>
-      * Borrar Usuario</br></br>
+      - Borrar Usuario</br></br>
 <img src="media/profile_delete-v3.jpg" height="600px">
 </br>
