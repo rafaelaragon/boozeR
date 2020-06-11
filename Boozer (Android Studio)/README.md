@@ -19,8 +19,8 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
      * #### Catálogo <br/><br/><img src="media/catalogue_1-v3.jpg" height="600px"><br/><br/>
      * #### Filtro <br/><br/><img src="media/catalogue_2-v3.jpg" height="600px"><br/><br/>
      * #### Barra de Búsqueda </br><br/><img src="media/catalogue_3-v3.jpg" height="600px"><br/><br/>
-   - ### Bebidas Favoritas </br><br/>
-      Aquí se muestran las bebidas que más le gustan al usuario
+   - ### Bebidas Favoritas
+      Aquí se muestran las bebidas que más le gustan al usuario </br><br/>
      <img src="media/favorites.jpg" height="600px">
      <br/><br/>
    - ### Calculador de Alcohol en Sangre </br><br/>
