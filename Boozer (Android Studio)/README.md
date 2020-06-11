@@ -6,11 +6,11 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/blob/master/BoozeR_01-06-2020.apk) e instalarla en el dispositivo. (Se requiere nivel de API 21 o superior).
 # _Secciones de BoozeR_
 ## 1. Índice
-Lo primero que se ve al iniciar la aplicación.Desde aquí es posible registrar el usuario, y en caso de estarlo, iniciar sesión </br>
+Lo primero que se ve al iniciar la aplicación.Desde aquí es posible registrar el usuario, y en caso de estarlo, iniciar sesión </br></br>
 <img src="media/index-v2.jpg" height="600px">
 
 ## 2. Registro
-Esta actividad sirve tanto para registrar al usuario en **Firebase** como para añadir la información del mismo en la tabla *Users* de **DynamoDB**</br>
+Esta actividad sirve tanto para registrar al usuario en **Firebase** como para añadir la información del mismo en la tabla *Users* de **DynamoDB** </br></br>
 <img src="media/register-v2.jpg" height="600px">
 
 ## 3. Inicio de Sesión</br>
