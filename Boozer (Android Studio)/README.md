@@ -18,29 +18,29 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
 </br></br>
 
 ## Vista Principal, que a su vez contiene varios fragmentos:</br>
-  ### - Catálogo de Bebidas</br></br>
-  1. Catálogo
+### - Catálogo de Bebidas</br></br>
+ #### 1. Catálogo
   <img src="media/catalogue_1-v3.jpg" height="600px">
   </br></br>
-  2. Filtro </br></br>
+ #### 2. Filtro </br></br>
   <img src="media/catalogue_2-v3.jpg" height="600px">
   </br></br>
-  3. Barra de Búsqueda </br></br>
+ #### 3. Barra de Búsqueda </br></br>
   <img src="media/catalogue_3-v3.jpg" height="600px">
   </br></br>
-  ### - Bebidas Favoritas</br></br>
+### - Bebidas Favoritas</br></br>
   <img src="media/favorites.jpg" height="600px">
   </br></br>
-  ### - Calculador de Alcohol en Sangre</br></br>
+### - Calculador de Alcohol en Sangre</br></br>
   <img src="media/calculator-v3.jpg" height="600px">
   </br></br>
   
 ## Perfil</br></br>
 <img src="media/profile-v2.jpg" height="600px">
 </br>
-  #### 1. Editar Perfil
+#### 1. Editar Perfil
 <img src="media/profile_edit-v3.jpg" height="600px">
 </br>
-  #### 2. Borrar Usuario
+#### 2. Borrar Usuario
 <img src="media/profile_delete-v3.jpg" height="600px">
 </br>
