@@ -22,10 +22,10 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
   1. Catálogo
   <img src="media/catalogue_1-v3.jpg" height="600px">
   </br></br>
-  2. Filtro
+  2. Filtro </br>
   <img src="media/catalogue_2-v3.jpg" height="600px">
   </br></br>
-  3. Barra de Búsqueda
+  3. Barra de Búsqueda </br>
   <img src="media/catalogue_3-v3.jpg" height="600px">
   </br></br>
   ### - Bebidas Favoritas</br></br>
