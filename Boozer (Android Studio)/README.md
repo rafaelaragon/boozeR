@@ -25,7 +25,7 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
    - ### Calculador de Alcohol en Sangre </br><br/>
        <img src="media/calculator-v3.jpg" height="600px"><br/><br/>
 ## 5. Perfil </br>
-<img src="media/profile-v2.jpg" height="600px"></br><br/>
-      - Editar Perfil</br></br><img src="media/profile_edit-v3.jpg" height="600px"></br><br/>
-      - Borrar Usuario</br></br><img src="media/profile_delete-v3.jpg" height="600px">
+   - Datos del Usuario <br/><br/><img src="media/profile-v2.jpg" height="600px"></br><br/>
+   - Editar Perfil</br></br><img src="media/profile_edit-v3.jpg" height="600px"></br><br/>
+   - Borrar Usuario</br></br><img src="media/profile_delete-v3.jpg" height="600px">
       
