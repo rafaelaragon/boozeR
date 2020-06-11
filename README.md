@@ -14,7 +14,7 @@ Principalmente, la aplicación está destinada a gestionar bebidas alcohólicas.
 
 ## _¿Cómo se ha hecho BoozeR?_
 ### App móvil 📱
-La app se ha creado usando Android Studio, y cualquier dispositivo Android con API de nivel 21 o mayor debería poder usarla sin problemas.
+La app se ha creado usando Android Studio, y cualquier dispositivo Android con API de nivel 24 o mayor debería poder usarla sin problemas.
 ### Aplicación web 💻
 La aplicación web se hizo con React, una librería de Javascript.
 ### Autenticación 🔑
