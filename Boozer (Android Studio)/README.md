@@ -13,15 +13,17 @@ Lo primero que se ve al iniciar la aplicación.Desde aquí es posible registrar 
 Esta actividad sirve tanto para registrar al usuario en **Firebase** como para añadir la información del mismo en la tabla *Users* de **DynamoDB** </br></br>
 <img src="media/register-v2.jpg" height="600px">
 
-## 3. Inicio de Sesión</br>
+## 3. Inicio de Sesión </br>
 <img src="media/login-v2.jpg" height="600px">
 
 ## 4. Vista Principal, que a su vez contiene varios fragmentos:
    - ### Catálogo de Bebidas 
       Es el fragmento más importante. En él, se puede ver una lista de todas las bebidas almacenadas en la tabla *Drinks* en                   **DynamoDB**<br/>
      * #### Catálogo <br/><br/><img src="media/catalogue_1-v3.jpg" height="600px"><br/><br/>
-     * #### Filtro <br/><br/><img src="media/catalogue_2-v3.jpg" height="600px"><br/><br/>
-     * #### Barra de Búsqueda </br><br/><img src="media/catalogue_3-v3.jpg" height="600px"><br/><br/>
+     * #### Filtro 
+         Es posible filtrar las bebidas según su tipo, graduación y precio, además de mostrar las bebidas de la **lista negra**<br/><br/><img src="media/catalogue_2-v3.jpg" height="600px"><br/><br/>
+     * #### Barra de Búsqueda 
+         </br><br/><img src="media/catalogue_3-v3.jpg" height="600px"><br/><br/>
    - ### Bebidas Favoritas
       Aquí se muestran las bebidas que más le gustan al usuario </br><br/>
      <img src="media/favorites.jpg" height="600px">
