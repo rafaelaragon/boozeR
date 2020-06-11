@@ -19,13 +19,13 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
 
 ## 4. Vista Principal, que a su vez contiene varios fragmentos:</br>
 ### - Catálogo de Bebidas</br></br>
- #### 1. Catálogo
+      * Catálogo
   <img src="media/catalogue_1-v3.jpg" height="600px">
   </br></br>
- #### 2. Filtro </br></br>
+      * Filtro </br></br>
   <img src="media/catalogue_2-v3.jpg" height="600px">
   </br></br>
- #### 3. Barra de Búsqueda </br></br>
+      * Barra de Búsqueda </br></br>
   <img src="media/catalogue_3-v3.jpg" height="600px">
   </br></br>
 ### - Bebidas Favoritas</br></br>
