@@ -21,10 +21,12 @@ La aplicación web se hizo con React, una librería de Javascript.
 Para la autenticación se utiliza Firebase Auth.
 ### Base de datos 💿
 La información de las bebidas, así como la de los usuarios se guarda en DynamoDB, una base de datos no-SQL creada por Amazon.
+<img src="Videos/DynamoDB.png" height="600px">
 ### API 📬
 La API ha sido creada con API-Gateway, un servicio de Amazon Web Services.
 ### Almacenamiento 📂
 Las imágenes de las bebidas se almacenan en Amazon Simple Storage Service (S3).
+<img src="Videos/S3.png" height="600px">
 
 ## _Contacto_
 En caso de no entender algo, o si sencillamente quieres dar ideas para mejorar la aplicación, no dudes en contactarme a través de mi correo, rafa.ar2000@gmail.com.
