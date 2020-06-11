@@ -35,12 +35,12 @@ Simplemente hay que descargarse la [apk](https://github.com/rafaelaragon/boozeR/
   <img src="media/calculator-v3.jpg" height="600px">
   </br></br>
   
-## Perfil</br></br>
+## - Perfil</br></br>
 <img src="media/profile-v2.jpg" height="600px">
 </br>
-## 1. Editar Perfil
+     1. Editar Perfil
 <img src="media/profile_edit-v3.jpg" height="600px">
 </br>
-## 2. Borrar Usuario
+     2. Borrar Usuario
 <img src="media/profile_delete-v3.jpg" height="600px">
 </br>
